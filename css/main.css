@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -7,55 +8,66 @@ body {
     height: 100%;
     width: 100%;
     text-align: center;
-    background: #181818;
-    color: #e4e4ef;
+    background: #1A1B26;
+    color: #C0CAF5;
 }
 
-
-.tsoding-box {
+.nmdra-box {
     display: table-cell;
     vertical-align: middle;
 }
 
-.tsoding-box h1 {
-    font-family: 'Cantarell', sans-serif;
+.nmdra-box h1 {
+    font-family: 'JetBrains Mono', sans-serif;
     font-size: 80px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.tsoding-box h2 {
-    font-family: 'Cantarell', sans-serif;
-    font-size: 30px;
+
+.nmdra-box h2 {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 20px;
     margin-bottom: 10px;
+}
+
+.nmdra-box h2:hover {
+    color: #F7768E;
+    font-style: italic;
+    animation: flash;
+    animation-duration: 0.5s;
 }
 
 a {
     font-kerning: normal;
-    font-family: 'Cantarell', sans-serif;
+    font-family: 'JetBrains Mono', sans-serif;
     font-size: 25px;
     color: #73c936;
     text-decoration: none;
 }
 
-.tsoding-links {
+.nmdra-links {
     margin-right: 25px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
-.tsoding-icon-link-first {
-    margin-left: 10px
-}
-
-.tsoding-icon-link {
-    width: 32px;
+.nmdra-icon-link {
+    width: 40px;
     margin-right: 10px;
 }
 
-.tsoding-text-link-first {
-    margin-left: 20px;
-}
-
-.tsoding-text-link {
-    margin-right: 20px;
-    font-size: 25px;
+.nmdra-icon-link:hover {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 50px;
+    transition: 0.70s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
