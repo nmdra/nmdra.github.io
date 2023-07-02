@@ -33,8 +33,9 @@ body {
 .nmdra-box h2:hover {
     color: #F7768E;
     font-style: italic;
-    animation: flash;
-    animation-duration: 0.5s;
+    /* animation: flash; */
+    /* animation-duration: 0.5s; */
+    animation: blinker 0.4s step-start infinite;
 }
 
 a {
@@ -70,4 +71,10 @@ a {
     -o-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
