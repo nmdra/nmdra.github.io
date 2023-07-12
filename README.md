@@ -1,1 +1,0 @@
-# nmdra.github.io

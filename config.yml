@@ -1,0 +1,119 @@
+baseURL: "https://nmdra.github.io"
+languageCode: en
+title: Nimendra
+theme: PaperMod
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Nimendra
+  description: "Welcome to my website!"
+  keywords: [Blog]
+  author: "Nimendra"
+  DateFormat: "January 2, 2006"
+    # dark, light
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  UseHugoToc: true
+  showtoc: true
+
+  assets:
+    disableHLJS: false
+
+      # Logo and name shown on top left of site
+  label:
+    text: "Nimendra"
+
+        # profile-mode
+  profileMode:
+    # Needs to be explicitly set
+    enabled: true
+    title: "Hey \U0001F44B, I'm Nimendra"
+    subtitle: "I'm a Tech Enthusiast & Software Engineering Student!"
+    imageUrl: "https://avatars.githubusercontent.com/u/73674803?v=4"
+    imageWidth: 150
+    imageHeight: 150
+    imageTitle: "Profile imege"
+    buttons:
+      - name: Blog
+        url: /blog/
+      - name: About Me
+        url: /about
+
+  socialIcons:
+    # - name: cv
+    #   url:
+    - name: github
+      url: "https://github.com/nmdra"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/nimendra/"
+    - name: twitter
+      url: "https://twitter.com/nimendra_"
+    - name: email
+      url: "mailto:nimendraonline@gmail.com"
+
+  cover:
+    linkFullImages: true
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: true
+
+        # editPost:
+        #   URL: ""
+        #   Text: "Suggest edit"
+        #   appendFilePath: true
+
+outputs:
+  home:
+    - HTML
+    - JSON
+
+menu:
+  main:
+    - identifier: about
+      name: About Me
+      url: /about
+      weight: 1
+    - identifier: blog
+      name: Blog
+      url: /blog
+      weight: 2
+    - identifier: projects
+      name: Projects
+      url: https://github.com/nmdra
+      weight: 4
+    - identifier: dotfiles
+      name: dotfiles
+      url: https://github.com/nmdra/Dotfiles
+      weight: 5
+    - identifier: uses
+      name: Uses
+      url: /uses/
+      weight: 3
+
+markup:
+  tableOfContents:
+    endLevel: 6
+
+highlight:
+  anchorLineNos: false
+  codeFences: true
+  guessSyntax: true
+  hl_Lines: ""
+  hl_inline: false
+  lineAnchors: ""
+  lineNoStart: 1
+  lineNos: false
+  lineNumbersInTable: true
+  noClasses: false
+  noHl: false
+  tabWidth: 4
+
