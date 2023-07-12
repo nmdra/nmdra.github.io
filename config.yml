@@ -44,7 +44,7 @@ params:
     imageTitle: "Profile imege"
     buttons:
       - name: Blog
-        url: /blog/
+        url: /blog
       - name: About Me
         url: /about
 
