@@ -1,5 +1,5 @@
 baseURL: "https://nmdra.github.io"
-languageCode: en
+languageCode: "en"
 title: Nimendra
 theme: PaperMod
 
@@ -12,10 +12,8 @@ params:
   title: Nimendra
   description: "Welcome to my website!"
   keywords: [Blog]
-  author: "Nimendra"
   DateFormat: "January 2, 2006"
-    # dark, light
-  defaultTheme: auto
+  defaultTheme: auto # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: true
@@ -46,6 +44,8 @@ params:
       - name: Blog
         url: /blog
       - name: About Me
+        url: /about
+      - name: Contact
         url: /about
 
   socialIcons:
@@ -90,13 +90,13 @@ menu:
       name: Projects
       url: https://github.com/nmdra
       weight: 4
-    - identifier: dotfiles
-      name: dotfiles
-      url: https://github.com/nmdra/Dotfiles
-      weight: 5
+    # - identifier: dotfiles
+    #   name: dotfiles
+    #   url: https://github.com/nmdra/Dotfiles
+    #   weight: 5
     - identifier: uses
       name: Uses
-      url: /uses/
+      url: /uses
       weight: 3
 
 markup:
