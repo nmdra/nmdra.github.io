@@ -1,0 +1,4 @@
+public/
+resources/
+deploy
+.hugo_build.lock
