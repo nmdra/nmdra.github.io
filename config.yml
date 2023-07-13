@@ -16,15 +16,15 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
-  ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   UseHugoToc: true
   showtoc: true
+  disableScrollToTop: false
 
   assets:
-    disableHLJS: false
+    disableHLJS: true
 
       # Logo and name shown on top left of site
   label:
@@ -102,18 +102,16 @@ menu:
 markup:
   tableOfContents:
     endLevel: 6
-
-highlight:
-  anchorLineNos: false
-  codeFences: true
-  guessSyntax: true
-  hl_Lines: ""
-  hl_inline: false
-  lineAnchors: ""
-  lineNoStart: 1
-  lineNos: false
-  lineNumbersInTable: true
-  noClasses: false
-  noHl: false
-  tabWidth: 4
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    noClasses: false
+    noHl: false
+    tabWidth: 4
+    style: dracula
 
