@@ -29,6 +29,7 @@ Here are the browser extensions I rely on:
     - [uBlock Origin](https://ublockorigin.com/): Adblocker.
     - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/): for Vim-like keybindings.
     - [Bitwarden](https://bitwarden.com/): For managing my passwords securely, I rely on Bitwarden.
+
 These browser extensions complement my browsing experience and help me maintain security and convenience while navigating the web. 🌐🔒
 
 ## Personal Development Environment (PDE)
@@ -43,9 +44,9 @@ These browser extensions complement my browsing experience and help me maintain 
 
 + I rely on the terminal file manager **[lf](https://github.com/gokcehan/lf)** for its impressive speed, customization capabilities, and support for image previews using a custom script. For GUI file management, I turn to **[Dolphin](https://invent.kde.org/system/dolphin)**, a versatile file manager that offers a user-friendly graphical interface. 🖥️📂
 
-+ I use **Alacritty** as my terminal emulator, along with **Zsh** as my shell and **Tmux** as a terminal multiplexer. 🔥💻⚡
++ I use **[Alacritty](https://github.com/alacritty/alacritty)** as my terminal emulator, along with **[Zsh](https://www.zsh.org/)** as my shell and **[Tmux](https://github.com/tmux/tmux/wiki)** as a terminal multiplexer. 🔥💻⚡
 
-+ I use [Ferdium](https://github.com/ferdium/ferdium-app) to organize and manage my favorite web applications like Discord, Notion, and more.
++ I use **[Ferdium](https://github.com/ferdium/ferdium-app)** to organize and manage my favorite web applications like Discord, Notion, and more.
 
 ## Media Player and Configuration
 
