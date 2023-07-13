@@ -1,4 +1,5 @@
 public/
 resources/
+themes/
 deploy
 .hugo_build.lock
