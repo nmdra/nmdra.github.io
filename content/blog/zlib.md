@@ -1,7 +1,7 @@
 ---
 author: "Nimendra"
 title: "📚 Zlib is dead. What we can do now…?"
-date: "2023-07-12"
+date: "2022-11-21"
 Summary: "About Z-Library Shut down"
 weight: 2
 ---
@@ -44,14 +44,3 @@ Anna's Archive is Search engine of shadow Library.
 * <https://libgen.is>
 
 For more Sites :- <https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/reading/#wiki_.25BA_reading_sites>
-### Lua
-```cpp
-
-#include <iostream.h>
-
-int main() // main function
-{
-    std::cout << "test\n"
-}
-
-```

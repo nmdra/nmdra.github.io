@@ -1,6 +1,7 @@
 ---
-title: Uses (My Personal technology setup and Preferences)
-lastmod: 2023-07-13
+title: Uses
+date: 2023-07-13
+lastmod: 2023-07-14
 showtoc: true
 ShowReadingTime: true
 ShowShareButtons: false
@@ -8,7 +9,7 @@ ShowPostNavLinks: true
 ShowBreadCrumbs: false
 ShowCodeCopyButtons: true
 ---
-`Last Update: 2023-07-13 12:42`
+`Last Update: 2023-07-14 21:40`
 
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). I have carefully selected the tools and configurations that suit my needs and enhance my productivity.
 
@@ -16,7 +17,7 @@ ShowCodeCopyButtons: true
 
 {{<figure src="https://raw.githubusercontent.com/nmdra/Dotfiles/main/desktop2023-Jul.webp" caption="Top-Left: Desktop, Top-Right:MPV, Middle-Left:Lf, Middle-Right:Spotify, Bottom-Left:Firefox, Bottom-Right:Neovim with Tmux on Alacritty" align="center" >}}
 
-## Linux Distribution and Desktop Environment
+## Linux Distribution & Desktop Environment
 
 + 🐧 Among the various Linux distributions available, my personal choice is **[Manjaro Linux](https://manjaro.org)!** It may have received some criticism from the Linux community, but in my opinion, it's the only distribution that really hits the spot for me. 🎯👌 I've tried Ubuntu, Pop!_OS, ArcoLinux, Linux Mint, and even ventured into Arch Linux territory, but Manjaro 🐧 stands out as the perfect fit for my needs and preferences. 🌟
 
@@ -50,7 +51,7 @@ These browser extensions complement my browsing experience and help me maintain 
 
 ## Media Player and Configuration
 
-+ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player, enhanced with a convenient [yt-dlp](https://github.com/yt-dlp/yt-dlp) hook, allowing seamless playback and stream youtube videos without hesitation 🎥🎵. You can found my MPV-Config in [here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
++ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player, enhanced with a convenient [yt-dlp](https://github.com/yt-dlp/yt-dlp) hook, allowing seamless playback and stream youtube videos without nonsense 🎥🎵. You can found my MPV-Config in [here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
 
 I've added the following alias to my `.zshrc` file to easily listen to YouTube videos:
 
