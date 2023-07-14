@@ -35,7 +35,7 @@ params:
     # Needs to be explicitly set
     enabled: true
     title: "Hey \U0001F44B, I'm Nimendra"
-    subtitle: "I'm a Tech Enthusiast & Software Engineering Student!"
+    subtitle: "Tech Enthusiast | Software Engineering Undergraduate"
     imageUrl: "https://avatars.githubusercontent.com/u/73674803?v=4"
     imageWidth: 150
     imageHeight: 150
@@ -46,7 +46,7 @@ params:
       - name: About Me
         url: /about
       - name: Contact
-        url: /about
+        url: /about/#contact-me
 
   socialIcons:
     # - name: cv
@@ -89,11 +89,11 @@ menu:
     - identifier: projects
       name: Projects
       url: https://github.com/nmdra
+      weight: 5
+    - identifier: links
+      name: Links
+      url: /links
       weight: 4
-    # - identifier: dotfiles
-    #   name: dotfiles
-    #   url: https://github.com/nmdra/Dotfiles
-    #   weight: 5
     - identifier: uses
       name: Uses
       url: /uses
