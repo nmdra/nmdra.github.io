@@ -13,25 +13,23 @@ ShowCodeCopyButtons: true
 
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). I have carefully selected the tools and configurations that suit my needs and enhance my productivity.
 
-+ **You can explore my (messy)  Dotfiles [here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀🔧
++ **You can explore my (messy)  [Dotfiles here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀🔧
 
-{{<figure src="https://raw.githubusercontent.com/nmdra/Dotfiles/main/desktop2023-Jul.webp" caption="Top-Left: Desktop, Top-Right:MPV, Middle-Left:Lf, Middle-Right:Spotify, Bottom-Left:Firefox, Bottom-Right:Neovim with Tmux on Alacritty" alt="My Desktop Preview" align="center" >}}
+{{<figure src="https://raw.githubusercontent.com/nmdra/Dotfiles/main/desktop2023-Jul.webp" caption="Top-Left: Desktop, Top-Right:MPV, Middle-Left:Lf, Middle-Right:Spotify, Bottom-Left:Firefox, Bottom-Right:Neovim with Tmux on Alacritty" alt="My Desktop Preview" width= "100%" height="auto"  align="center" >}}
 
 ## Linux Distribution & Desktop Environment
 
-+ 🐧 Among the various Linux distributions available, my personal choice is **[Manjaro Linux](https://manjaro.org)!** It may have received some criticism from the Linux community, but in my opinion, it's the only distribution that really hits the spot for me. 🎯👌 I've tried Ubuntu, Pop!_OS, ArcoLinux, Linux Mint, and even ventured into Arch Linux territory, but Manjaro 🐧 stands out as the perfect fit for my needs and preferences. 🌟
++ 🐧 Among the various Linux distributions available, my personal choice is **[Manjaro Linux](https://manjaro.org)!** It may have received some criticism from the Linux community, but in my opinion, it's the only distribution that really hits the spot for me. 🎯👌 I've tried Ubuntu, Pop!_OS, ArcoLinux, Linux Mint, and even ventured into Arch Linux territory, but Manjaro stands out as the perfect fit for my needs and preferences.
 
-+ 🖥️ When it comes to my desktop environment, I have found my perfect match in **[KDE](https://kde.org/)!** 🌈✨ With its feature-rich and customizable interface, KDE has become my go-to choice for a visually appealing and efficient desktop experience. 🖱️💻 Whether it's the sleek design, extensive customization options, or the seamless integration of applications, KDE has won me over completely. 💙🐧 It's the perfect environment for unleashing my productivity while enjoying a delightful user interface. 😊🚀
++ 🖥️ When it comes to my desktop environment, I have found my perfect match in **[KDE](https://kde.org/)!** 🌈✨ With its feature-rich and customizable interface, KDE has become my go-to choice for a visually appealing and efficient desktop experience. 😊🚀
 
 ## Web browsing
 
-+ For my web browser, I use **[Firefox](https://firefox.com)** with some custom configurations. Occasionally, I also use **[Brave Browser](brave.com)**. 😑 While Brave is decent, it tends to be a bit bloated.
++ For my web browser, I use **[Firefox](https://firefox.com)** with some custom configurations. Occasionally, I also use **[Brave Browser](brave.com)**.While Brave is decent, it tends to be a bit bloated 😑.
 Here are the browser extensions I rely on:
     - [uBlock Origin](https://ublockorigin.com/): Adblocker.
     - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/): for Vim-like keybindings.
     - [Bitwarden](https://bitwarden.com/): For managing my passwords securely, I rely on Bitwarden.
-
-These browser extensions complement my browsing experience and help me maintain security and convenience while navigating the web. 🌐🔒
 
 ## Personal Development Environment (PDE)
 
@@ -51,7 +49,7 @@ These browser extensions complement my browsing experience and help me maintain 
 
 ## Media Player and Configuration
 
-+ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player, enhanced with a convenient [yt-dlp](https://github.com/yt-dlp/yt-dlp) hook, allowing seamless playback and stream youtube videos without nonsense 🎥🎵. You can found my MPV-Config in [here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
++ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player, enhanced with a convenient [yt-dlp](https://github.com/yt-dlp/yt-dlp) hook, allowing seamless playback and stream youtube videos without nonsense 🎥🎵. You can found my [MPV-Config in here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
 
 I've added the following alias to my `.zshrc` file to easily listen to YouTube videos:
 
@@ -64,7 +62,7 @@ This alias allows me to enjoy YouTube without interruptions, using the `$ ytmusi
 
 ## Theme, Font, and Color Scheme
 
-I embrace the **[Tokyonight](https://github.com/folke/tokyonight.nvim)** color scheme for all my applications, including this website's Dark Mode. When it comes to my terminal font, I opt for **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)**, specifically the Nerd Font version, ensuring a stylish and pleasant coding experience. 🎨🖥️✨
+I embrace the **[Tokyonight](https://github.com/folke/tokyonight.nvim)** color scheme for all my applications, including this website's Dark Mode. When it comes to my terminal font, I opt for **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)**, specifically the Nerd Font version,pleasant coding experience. 🎨🖥️✨
 
 ## This Website
 
