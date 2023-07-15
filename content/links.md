@@ -5,7 +5,7 @@ date: "2023-07-14"
 ShowBreadCrumbs: false
 ---
 
-*`last updated, 2023-07-14 22:07`*
+*`last updated, 2023-07-15 20:49`*
 
 Here are some links to other websites and videos that I find both useful and interesting.🔗📺
 Feel free to check them out and expand your knowledge on these engaging subjects!
@@ -15,6 +15,7 @@ Feel free to check them out and expand your knowledge on these engaging subjects
 + **[ericmurphy.xyz](https://ericmurphy.xyz)** - *Web Development & Linux*
 + **[jdhao.github.io](https://jdhao.github.io)** - *Programming & Neovim*
 + **[bugswriter.com](https://www.bugswriter.com/)** - *Cool Stuff*
++ **[theevilskeleton.gitlab.io](https://theevilskeleton.gitlab.io/)** - *Gnu/Linux, FOSS*
 
 
 ## 📺 Videos & YouTube Channels
@@ -26,7 +27,13 @@ Feel free to check them out and expand your knowledge on these engaging subjects
 + **[MentalOutlaw](https://www.youtube.com/@MentalOutlaw)** - *Linux, Cyber Security*
 
 ## 📰 Articles
++ **[How to say No](https://www.starterstory.com/how-to-say-no/)**
++ **[How regex works](https://perl.plover.com/Regex/article.html)**
 
+## 🧑🏽‍🎓 For Learning
+
++ **[learncpp.com](https://www.learncpp.com/)** - *C++*
++ **[learn-sql-in-30-days-roadmap](https://datalemur.com/blog/learn-sql-in-30-days-roadmap)** - *Sql Learning Roadmap*
 
 ## 🗿 Others
 
