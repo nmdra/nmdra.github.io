@@ -29,7 +29,7 @@ background: #1a1b26,
     --theme: #16161e;
     --primary: #c0caf5;
     --secondary: #a9b1d6;
-    --tertiary: #545c7e;
+    --tertiary: #283457;
     --content: #a9b1d6;
     --hljs-bg: #292e42;
     --code-bg: #292e42;
@@ -38,7 +38,7 @@ background: #1a1b26,
 
 /* Change color on hover */
 a:hover {
-    color: #7aa2f7;
+    color: #7dcfff;
 }
 
 a.anchor:hover {
