@@ -38,7 +38,8 @@ params:
     enabled: true
     title: "Hey \U0001F44B, I'm Nimendra"
     subtitle: "Tech Enthusiast | Software Engineering Undergraduate"
-    imageUrl: "https://avatars.githubusercontent.com/u/73674803?v=4"
+    # imageUrl: "https://avatars.githubusercontent.com/u/73674803?v=4"
+    imageUrl: /profile.png
     imageWidth: 150
     imageHeight: 150
     imageTitle: "Profile imege"
