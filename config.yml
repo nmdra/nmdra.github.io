@@ -46,7 +46,7 @@ params:
       - name: Blog
         url: /blog
       - name: About Me
-        url: /about
+        url: /about/#about-me
       - name: Contact
         url: /about/#contact-me
 
@@ -81,7 +81,7 @@ outputs:
 menu:
   main:
     - identifier: about
-      name: About Me
+      name: About
       url: /about
       weight: 1
     - identifier: blog

@@ -1,6 +1,6 @@
 ---
 author: "Nimendra"
-title: "Firefox Extesion"
+title: "Firefox Extension"
 date: "2023-07-12"
 Summary: "My Favorite Firefox extesions"
 weight: 2

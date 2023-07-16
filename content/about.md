@@ -19,7 +19,7 @@ ShowCodeCopyButtons: true
 
 *[what is this](https://nownownow.com/about)*
 
-+ **Now**, I am focused on learning web development, primarily [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), as well as honing my skills in [C++](https://www.cplusplus.com/) and [Golang](https://golang.org/) languages. I am passionate about expanding my knowledge and proficiency in these programming languages to become a well-rounded developer.
++ **Now**, I am focused on learning web development, primarily [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), as well as honing my skills in [C++](https://www.cplusplus.com/) and Go languages.
 
 + In my free time, you can find me 📚 immersed in books and 📺 enjoying captivating Animes. It's a delightful way for me to relax and explore new worlds of imagination.
 

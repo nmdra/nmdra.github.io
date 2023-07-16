@@ -2,4 +2,4 @@
 title: Blog
 ---
 
-**My thoughts, opinions & Brainstroms.**
+**My thoughts, opinions, Brainstroms & some Tutorials**
