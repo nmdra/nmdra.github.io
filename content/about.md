@@ -6,6 +6,7 @@ ShowShareButtons: false
 ShowPostNavLinks: true
 ShowBreadCrumbs: false
 ShowCodeCopyButtons: true
+
 ---
 
 # About Me

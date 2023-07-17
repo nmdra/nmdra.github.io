@@ -3,6 +3,10 @@ title: Links
 author: "Nimendra"
 date: "2023-07-14"
 ShowBreadCrumbs: false
+editPost:
+  URL: "https://github.com/nmdra/nmdra.github.io/tree/main/content"
+  Text: "Suggest edit"
+  appendFilePath: true
 ---
 
 *`last updated, 2023-07-15 20:49`*

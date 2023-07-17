@@ -28,21 +28,20 @@ params:
   assets:
     disableHLJS: true
 
-      # Logo and name shown on top left of site
+  # Logo and name shown on top left of site
   label:
     text: "Nimendra"
 
-        # profile-mode
+  # profile-mode
   profileMode:
     # Needs to be explicitly set
     enabled: true
     title: "Hey \U0001F44B, I'm Nimendra"
     subtitle: "Tech Enthusiast | Software Engineering Undergraduate"
-    # imageUrl: "https://avatars.githubusercontent.com/u/73674803?v=4"
-    imageUrl: /profile.png
+    imageUrl: images/profile.webp
     imageWidth: 150
     imageHeight: 150
-    imageTitle: "Profile imege"
+    imageTitle: "Profile image"
     buttons:
       - name: Blog
         url: /blog
@@ -69,10 +68,7 @@ params:
     hiddenInList: false
     hiddenInSingle: true
 
-        # editPost:
-        #   URL: ""
-        #   Text: "Suggest edit"
-        #   appendFilePath: true
+
 
 outputs:
   home:

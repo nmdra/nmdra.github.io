@@ -8,6 +8,10 @@ ShowShareButtons: false
 ShowPostNavLinks: true
 ShowBreadCrumbs: false
 ShowCodeCopyButtons: true
+editPost:
+  URL: "https://github.com/nmdra/nmdra.github.io/tree/main/content"
+  Text: "Suggest edit"
+  appendFilePath: true
 ---
 `Last Update: 2023-07-14 21:40`
 
@@ -15,7 +19,7 @@ ShowCodeCopyButtons: true
 
 + **You can explore my (messy)  [Dotfiles here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀🔧
 
-{{<figure src="https://raw.githubusercontent.com/nmdra/Dotfiles/main/desktop2023-Jul.webp" caption="Top-Left: Desktop, Top-Right:MPV, Middle-Left:Lf, Middle-Right:Spotify, Bottom-Left:Firefox, Bottom-Right:Neovim with Tmux on Alacritty" alt="My Desktop Preview" width= "100%" height="auto"  align="center" >}}
+{{<figure src="/images/desktop.webp" caption="My Desktop With Favorite Applications" alt="My Desktop Preview" width= "100%" height="auto"  align="center" >}}
 
 ## Linux Distribution & Desktop Environment
 

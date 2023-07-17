@@ -4,6 +4,10 @@ title: "📚 Zlib is dead. What we can do now…?"
 date: "2022-11-21"
 Summary: "About Z-Library Shut down"
 weight: 2
+editPost:
+  URL: "https://github.com/nmdra/nmdra.github.io/tree/main/content"
+  Text: "Suggest edit"
+  appendFilePath: true
 ---
 `Last Update 2022-11-21`
 
