@@ -36,16 +36,19 @@ background: #1a1b26,
     --border: #9d7cd8;
 }
 
-/* Change color on hover */
+/* Change Hover Color */
+/* light Theme */
 a:hover {
-    color: #7dcfff;
+ color:#DB2777
 }
-
-a.anchor:hover {
-    color: #7dcfff !important;
-}
-
 svg:hover {
-    color: #7dcfff;
+ color:#DB2777
 }
 
+/* Dark Theme */
+.dark a:hover {
+ color:#7dcfff
+}
+.dark svg:hover {
+ color:#7dcfff
+}
