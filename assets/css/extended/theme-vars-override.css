@@ -52,3 +52,8 @@ svg:hover {
 .dark svg:hover {
  color:#7dcfff
 }
+
+.post-content img {
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
