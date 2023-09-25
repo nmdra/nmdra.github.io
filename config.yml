@@ -21,6 +21,7 @@ params:
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   showtoc: true
   disableScrollToTop: false
@@ -74,6 +75,7 @@ outputs:
   home:
     - HTML
     - JSON
+    - RSS
 
 menu:
   main:
