@@ -15,6 +15,7 @@ editPost:
 ---
 `Last Update: 2023-09-25`
 
+## Introduction
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). 
 
 + **You can explore my (messy)  [Dotfiles here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀🔧
