@@ -20,7 +20,8 @@ Feel free to check them out and expand your knowledge on these engaging subjects
 + **[jdhao.github.io](https://jdhao.github.io)** - *Programming & Neovim*
 + **[bugswriter.com](https://www.bugswriter.com/)** - *Cool Stuff*
 + **[theevilskeleton.gitlab.io](https://theevilskeleton.gitlab.io/)** - *Gnu/Linux, FOSS*
-
++ **[denshi.org](https://denshi.org/blog/)** 
++ **[mccor.xyz](https://mccor.xyz/index.html)**
 
 ## 📺 Videos & YouTube Channels
 
