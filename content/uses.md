@@ -1,7 +1,7 @@
 ---
 title: Uses
 date: 2023-07-13
-lastmod: 2023-09-25
+lastmod: 2023-11-24
 showtoc: true
 ShowReadingTime: true
 ShowShareButtons: false
@@ -13,7 +13,7 @@ editPost:
   Text: "Suggest edit"
   appendFilePath: true
 ---
-`Last Update: 2023-09-25`
+`Last Update: 2023-11-24`
 
 ## Introduction
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). 
@@ -47,23 +47,29 @@ Here are the browser extensions I rely on:
 
 ## Terminal & Tools
 
-+ My go-to setup for the terminal includes [Alacritty](https://github.com/alacritty/alacritty) as the emulator, [Zsh](https://www.zsh.org/) as my shell, and [Tmux](https://github.com/tmux/tmux/wiki) as a terminal multiplexer. It's a blazing-fast combo! 💻⚡
++ My go-to setup for the terminal includes [Alacritty](https://github.com/alacritty/alacritty) as the emulator, [Zsh](https://www.zsh.org/) as my shell, and [Tmux](https://github.com/tmux/tmux/wiki) as a terminal multiplexer.
 
-+ I really like using the terminal file manager [lf](https://github.com/gokcehan/lf) because it's super fast, highly customizable, and even supports image previews with a custom script. And when I need to manage files with a graphical interface, I turn to [Dolphin](https://invent.kde.org/system/dolphin).🖥️📂
++ I really like using the terminal file manager [lf](https://github.com/gokcehan/lf) because it's super fast, highly customizable, and even supports image previews with a custom script. And when I need to manage files with a graphical interface, I turn to [Dolphin](https://invent.kde.org/system/dolphin).
 
-+ To keep all my favorite web apps in check, I use [Ferdium](https://github.com/ferdium/ferdium-app). It helps me organize and manage apps like Discord, Notion, and more. Super handy!
++ To keep all my favorite web apps in check, I use [Ferdium](https://github.com/ferdium/ferdium-app). It helps me organize and manage Web apps like Whatsapp, Discord, Notion, and more. Super handy!
 
 ## Media Player and Configuration
 
-+ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player, enhanced with a convenient [yt-dlp](https://github.com/yt-dlp/yt-dlp) hook, allowing seamless playback and stream youtube videos without nonsense 🎥🎵. You can found my [MPV-Config in here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
++ I rely on **[MPV](https://github.com/mpv-player/mpv)** as my go-to media player with some custom configurations.
+     
++ These are some scripts used with MPV:
+    - **kde-night-color.so**: Turn off Night Color when using MPV.
+    - **thumbfast.lua**: High-performance on-the-fly thumbnailer.
+    - **modernx.lua**: Modern OSC UI replacement.
+    - **playlistmanager.lua**: Playlist Manager.
 
-I've added the following alias to my `.zshrc` file to easily listen to YouTube videos:
-
++ You can find my [MPV Config here](https://github.com/nmdra/Dotfiles/tree/main/mpv).
+    
++ I've set up an alias that allows me to enjoy YouTube without interruptions using the following command:
+    
 ```bash
 ytmusic="mpv --vo=null --video=no --pause=no --no-video --term-osd-bar --loop-playlist=inf "
 ```
-
-This alias allows me to enjoy YouTube without interruptions, using the `$ ytmusic <YouTube Url>` command. 🎵🎧
 
 ## Theme, Font, and Color Scheme
 
