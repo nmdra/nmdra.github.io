@@ -58,8 +58,8 @@ params:
       url: "https://github.com/nmdra"
     - name: linkedin
       url: "https://www.linkedin.com/in/nimendra/"
-    - name: twitter
-      url: "https://twitter.com/nimendra_"
+    - name: x
+      url: "https://x.com/nimendra_"
     - name: email
       url: "mailto:nimendraonline@gmail.com"
 
