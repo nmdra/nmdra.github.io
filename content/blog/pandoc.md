@@ -16,7 +16,9 @@ editPost:
 
 ## Introduction
 
+
 [Pandoc](https://pandoc.org/) stands as the universal document converter. In this guide, we'll walk you through how to make the most of Pandoc's capabilities, turning your note-taking process into a seamless and productive experience. Whether you're a student, a researcher, or simply someone who loves to jot down thoughts, Pandoc can be the versatile tool you've been looking for.The primary focus of this guide is harnessing the power of Pandoc to effortlessly convert Markdown into beautifully formatted PDFs.
+
 
 (article image)
 
