@@ -44,12 +44,14 @@ params:
     imageHeight: 150
     imageTitle: "Profile image"
     buttons:
-      - name: About Me
+      - name: About
         url: /about/#about-me
       - name: Contact
         url: /about/#contact-me
+      # - name: Resume
+      #   url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
       - name: Resume
-        url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
+        url: /resume
       - name: Blog
         url: /blog
   
