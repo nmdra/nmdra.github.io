@@ -2,6 +2,7 @@
 title: "Note-Taking with Pandoc: A Comprehensive Guide"
 date: 2023-09-25
 lastmod: 2023-09-25
+draft: true
 showtoc: true
 ShowReadingTime: true
 ShowShareButtons: false
