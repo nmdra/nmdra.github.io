@@ -19,6 +19,6 @@ Special shoutouts to these amazing websites that inspired and influenced the cre
 - [ericmurphy.xyz](https://github.com/ericmurphyxyz/ericmurphy.xyz): Check out the brilliance of Eric Murphy's digital abode.
 - [jessewei.dev](https://jessewei.dev/blog/2023/papermod/): Jesse Wei's insightful blog on the PaperMod theme is a must-read.
 - [robb.sh](https://github.com/robb-romans/robb-sh-hugo): Explore the digital wonders of Robb Romans' site.
-
+- [mansoorbarri.com](https://mansoorbarri.com/tags/hugo/)
 Feel free to delve into the source code, and let the digital journey begin! 🚀🌐
 
