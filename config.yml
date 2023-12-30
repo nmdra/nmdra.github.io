@@ -1,7 +1,7 @@
 baseURL: "https://nmdra.github.io"
 languageCode: "en"
 title: Nimendra
-theme: PaperMod
+theme: ["hugo-redirect", "PaperMod"]
 
 minify:
   disableXML: true
@@ -38,19 +38,21 @@ params:
     # Needs to be explicitly set
     enabled: true
     title: "Hey \U0001F44B, I'm Nimendra"
-    subtitle: "Tech Enthusiast | Software Engineering Undergraduate"
+    subtitle: "Software Engineering Undergraduate"
     imageUrl: images/profile.webp
     imageWidth: 150
     imageHeight: 150
     imageTitle: "Profile image"
     buttons:
-      - name: Blog
-        url: /blog
       - name: About Me
         url: /about/#about-me
       - name: Contact
         url: /about/#contact-me
-
+      - name: Resume
+        url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
+      - name: Blog
+        url: /blog
+  
   socialIcons:
     # - name: cv
     #   url:
