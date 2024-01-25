@@ -16,6 +16,6 @@ Special shoutouts to these amazing websites that inspired and influenced the cre
 - [mansoorbarri.com](https://mansoorbarri.com/tags/hugo/)
 
 --- 
-           
+   
 Feel free to delve into the source code, and let the digital journey begin! 🚀🌐
 
