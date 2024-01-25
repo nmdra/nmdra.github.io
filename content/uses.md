@@ -18,19 +18,19 @@ editPost:
 ## Introduction
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). 
 
-+ **You can explore my (messy)  [Dotfiles here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀🔧
++ **You can explore my [Dotfiles here](https://github.com/nmdra/Dotfiles)**. It's a repository where I store and share my configuration files for various applications and *Bash Scripts*. Feel free to check it out! 👀
 
 {{<figure src="/images/desktop.webp" caption="My Desktop With Favorite Applications" alt="My Desktop Preview" width= "100%" height="auto"  align="center" >}}
 
 ## Linux Distribution & Desktop Environment
 
-+ 🐧 Among the various Linux distributions available, my personal choice is **[Manjaro Linux](https://manjaro.org)!** It may have received some criticism from the Linux community, but in my opinion, it's the only distribution that really hits the spot for me. 🎯👌 I've tried Ubuntu, Pop!_OS, ArcoLinux, Linux Mint, and even ventured into Arch Linux territory, but Manjaro stands out as the perfect fit for my needs and preferences.
++ 🐧 Among the various Linux distributions available, my personal choice is **[Manjaro Linux](https://manjaro.org)!** It may have received some criticism from the Linux community, but in my opinion, it's the only distribution that really hits the spot for me.🎯 I've tried Ubuntu, Pop!_OS, ArcoLinux, Linux Mint, and even ventured into Arch Linux territory, but Manjaro stands out as the perfect fit for my needs and preferences.
 
 + 🖥️ When it comes to my desktop environment, I have found my perfect match in **[KDE](https://kde.org/)!** 🌈✨ With its feature-rich and customizable interface, KDE has become my go-to choice for a visually appealing and efficient desktop experience.
 
 ## Web browsing
 
-+ For my web browser, I use **[Brave Browser](https://brave.com)**.**.
++ For my web browser, I use **[Brave Browser](https://brave.com)**.
 Here are the browser extensions I rely on:
     - [Bitwarden](https://bitwarden.com/): For managing my passwords securely, I rely on Bitwarden.
     - Dark reader
@@ -41,7 +41,7 @@ Here are the browser extensions I rely on:
 
 + Curious about what a PDE (Personal Development Environment) is? *Check out this informative video [youtu.be/QMVIJhC9Veg](https://youtu.be/QMVIJhC9Veg) by [TJ DeVries](https://github.com/tjdevries) to learn more and discover how it can enhance your coding experience*
 .
-+ I rely on **[Neovim](https://neovim.org)** as my Personal Development Environment (PDE). ⌨️😊 Despite Vim's notorious steep learning curve, I firmly believe that the journey is worth the ultimate rewards.
++ I rely on **[Neovim](https://neovim.org)** as my Personal Development Environment (PDE). Despite Vim's notorious steep learning curve, I firmly believe that the journey is worth the ultimate rewards.
 
 + I also use [VSCode](https://code.visualstudio.com) for web development, and I've configured it with  [**VSCode Neovim**](https://github.com/vscode-neovim/vscode-neovim).
 

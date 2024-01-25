@@ -8,12 +8,12 @@
 
 ## Inspiration from Fellow Creatives 🌟
 
-Special shoutouts to these amazing websites that inspired and influenced the creation of my own:
 
 - [ericmurphy.xyz](https://github.com/ericmurphyxyz/ericmurphy.xyz): Check out the brilliance of Eric Murphy's digital abode.
 - [jessewei.dev](https://jessewei.dev/blog/2023/papermod/): Jesse Wei's insightful blog on the PaperMod theme is a must-read.
 - [robb.sh](https://github.com/robb-romans/robb-sh-hugo): Explore the digital wonders of Robb Romans' site.
 - [mansoorbarri.com](https://mansoorbarri.com/tags/hugo/)
+- [Medium Zoom](https://github.com/francoischalifour/medium-zoom) 
 
 --- 
    
