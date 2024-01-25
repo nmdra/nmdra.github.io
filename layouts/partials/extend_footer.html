@@ -1,19 +1,16 @@
-<!-- Image Zoom -->
-<style>
-@media screen and (min-width: 769px) {
-    /* .post-content is a class which will be present only on single pages
-        and not lists and section pages in Hugo */
-    .post-content input[type="checkbox"]:checked ~ label > img {
-        transform: scale(1.6);
-        cursor: zoom-out;
-        position: relative;
-        z-index: 999;
-    }
+<script src="
+https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js
+"></script>
 
-    .post-content img.zoomCheck {
-        transition: transform 0.15s ease;
-        z-index: 999;
-        cursor: zoom-in;
-    }
-}
-</style>
+<script>
+const images = Array.from(document.querySelectorAll(".post-content img"));
+images.forEach(img => {
+  mediumZoom(img, {
+    margin: 0, /* The space outside the zoomed image */
+    background: '#15161e',
+    scrollOffset: 40, /* The number of pixels to scroll to close the zoom */
+    container: null, /* The viewport to render the zoom in */
+    template: null /* The template element to display on zoom */
+  });
+});
+</script>
