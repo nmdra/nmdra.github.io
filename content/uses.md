@@ -1,7 +1,7 @@
 ---
 title: Uses
 date: 2023-07-13
-lastmod: 2023-11-24
+lastmod: 2024-01-25
 showtoc: true
 ShowReadingTime: true
 ShowShareButtons: false
@@ -13,7 +13,7 @@ editPost:
   Text: "Suggest edit"
   appendFilePath: true
 ---
-`Last Update: 2023-11-24`
+`Last Update: 2024-01-25`
 
 ## Introduction
 + In this article, I will share my personal technology setup and preferences. Inspired by [Eric Murphy's fascinating Article](https://ericmurphy.xyz/uses/). 
@@ -30,12 +30,12 @@ editPost:
 
 ## Web browsing
 
-+ For my web browser, I use **[Brave Browser](https://brave.com)**. Occasionally, I also use **[Firefox](https://firefox.com)** & **[Chromium](https://www.chromium.org/Home/)**.
++ For my web browser, I use **[Brave Browser](https://brave.com)**.**.
 Here are the browser extensions I rely on:
-    - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/): for Vim-like keybindings.
     - [Bitwarden](https://bitwarden.com/): For managing my passwords securely, I rely on Bitwarden.
-     - dark reader
-     - read aloud
+    - Dark reader
+    - Tabbox
+    - Bypass Paywall clean
 
 ## Personal Development Environment (PDE)
 
@@ -43,7 +43,7 @@ Here are the browser extensions I rely on:
 .
 + I rely on **[Neovim](https://neovim.org)** as my Personal Development Environment (PDE). ⌨️😊 Despite Vim's notorious steep learning curve, I firmly believe that the journey is worth the ultimate rewards.
 
-+ I also use [VSCode](https://code.visualstudio.com) for web development, and I've configured it with Vim keybindings.
++ I also use [VSCode](https://code.visualstudio.com) for web development, and I've configured it with  [**VSCode Neovim**](https://github.com/vscode-neovim/vscode-neovim).
 
 ## Terminal & Tools
 

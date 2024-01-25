@@ -9,12 +9,12 @@ editPost:
   appendFilePath: true
 ---
 
-*`last updated, 2023-07-15 20:49`*
+*`last updated, 2024-01-05 20:49`*
 
 Here are some links to other websites and videos that I find both useful and interesting.🔗📺
 Feel free to check them out and expand your knowledge on these engaging subjects!
 
-## 🌐 Websites
+## 🌐 Blogs 
 
 + **[ericmurphy.xyz](https://ericmurphy.xyz)** - *Web Development & Linux*
 + **[jdhao.github.io](https://jdhao.github.io)** - *Programming & Neovim*
@@ -22,6 +22,8 @@ Feel free to check them out and expand your knowledge on these engaging subjects
 + **[theevilskeleton.gitlab.io](https://theevilskeleton.gitlab.io/)** - *Gnu/Linux, FOSS*
 + **[denshi.org](https://denshi.org/blog/)** 
 + **[mccor.xyz](https://mccor.xyz/index.html)**
++ **[bitfieldconsulting.com/golang](https://bitfieldconsulting.com/golang)** - *Golang*
+
 
 ## 📺 Videos & YouTube Channels
 
