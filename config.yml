@@ -18,6 +18,7 @@ params:
   defaultTheme: dark # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
+  ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -114,9 +115,9 @@ markup:
     hl_Lines: ""
     hl_inline: false
     lineAnchors: ""
-    lineNoStart: 1
+    lineNoStart: 0
     noClasses: false
     noHl: false
     tabWidth: 4
-    style: dracula
+    style: tokyo-night-dark
 
