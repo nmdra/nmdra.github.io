@@ -43,8 +43,6 @@ Now, about Postman... While it's an amazing tool, it does have some pain points:
 - Not always available when you need it (like on production servers) 🚫
 - Collections can get messy and outdated if not maintained well 🗑️
 
-Want to see some cool examples of how to use curl and jq together for API testing? 🎯 I'd be happy to show you! 🚀
-
 ---
 
 We'll walk through practical examples using a [Fake Store API](https://fakestoreapi.com/docs) &  [dummyjson](https://dummyjson.com/docs), demonstrating the power and flexibility of these tools for effective API testing.
@@ -406,7 +404,7 @@ xh --print=HB POST https://fakestoreapi.com/products \
 
 {{< /notice >}}
 
-### HTTPie - The Colorful Pioneer 🎨
+### HTTPie
 
 Started as a command-line marvel, it's now evolved into a full-featured suite that speaks HTTP in your language.
 
