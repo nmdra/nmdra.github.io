@@ -1,8 +1,13 @@
 ---
-title: API Testing with curl & jq
+author: nimendra
+title: Goodbye Postman?👋 CLI Tools That Will Change Your API Testing Forever
+description: "A comprehensive guide to command-line HTTP clients.Deep dive into curl, HTTPie, and xh"
 date: 2024-11-08
-lastmod: 2024-11-08
+lastmod: 2024-11-10
+tags: ["curl","xh","httpie","postman","api"]
+categories: ["api","devops","devtools"]
 showtoc: true
+TocOpen: true
 ShowReadingTime: true
 ShowShareButtons: true
 ShowPostNavLinks: true
@@ -14,27 +19,39 @@ editPost:
   appendFilePath: true
 ---
 
+You know how we developers spend a lot of time working with APIs, right? While tools like Postman are great, sometimes they can feel a bit heavy-handed - you have to launch the app, navigate through the UI, and deal with occasional crashes or sync issues. Not to mention those times when you're SSH'd into a server and need to quickly test an endpoint!
 
-API testing plays a crucial role in verifying the functionality and reliability of web services. As a developer, tester, or DevOps engineer, interacting with APIs through the command line can significantly enhance your workflow. Two powerful tools for this purpose are `curl` and `jq`.
+This is where command-line tools like [`curl`(short for "Client URL")](https://curl.se/
+) and jq come in as your trusty sidekicks! 🦸‍♂️ Think of curl as your Swiss Army knife for making HTTP requests - it's always there in your terminal, ready to help. And [jq](https://jqlang.github.io/jq)? It's like having a magic wand ✨ that turns messy JSON responses into beautifully formatted, readable data that you can actually work with.
 
-## curl
+Let me break down why these command-line tools are so valuable:
 
-`curl` (short for "Client URL") is a command-line tool used to transfer data to or from a server, using various network protocols such as HTTP, HTTPS, FTP, and more. 
-It's widely used for testing APIs, downloading files, and automating data transfer tasks.
+1. Speed and Efficiency ⚡
+- No need to switch contexts or launch apps
+- Lightning-fast execution 🏃‍♀️
+- Perfect for quick API checks during development
 
-https://curl.se/
+2. Automation-Friendly 🤖
+- Easily integrate into shell scripts
+- Perfect for CI/CD pipelines 🔄
+- Great for automated testing ✅
 
-## jq
+Now, about Postman... While it's an amazing tool, it does have some pain points: 🤔
+- Takes up significant system resources 🐌
+- Can be sluggish to start up
+- Sync issues between devices can be frustrating 😫
+- Not always available when you need it (like on production servers) 🚫
+- Collections can get messy and outdated if not maintained well 🗑️
 
-`jq` is a powerful command-line tool for parsing, filtering, and manipulating JSON data.
-
-https://jqlang.github.io/jq/
+Want to see some cool examples of how to use curl and jq together for API testing? 🎯 I'd be happy to show you! 🚀
 
 ---
 
 We'll walk through practical examples using a [Fake Store API](https://fakestoreapi.com/docs) &  [dummyjson](https://dummyjson.com/docs), demonstrating the power and flexibility of these tools for effective API testing.
 
-## Get Request
+## Curl + jq 🔧
+
+### Get Request
 
 ```bash
 curl 'https://dummyjson.com/quotes?limit=2&skip=2' | jq
@@ -60,7 +77,7 @@ curl 'https://dummyjson.com/quotes?limit=2&skip=2' | jq
 > }
 > ```
 
-### Get verbose output with Additional Details
+#### Get verbose output with Additional Details
 
 - `-sS`  → Combines `-s` (silent) and `-S` (show errors) flags, hiding the progress but showing errors if they occur.
 - -X → Specifies the `GET` method.
@@ -171,7 +188,7 @@ curl -sS -X GET -v 'https://dummyjson.com/quotes?limit=2&skip=2' | jq
 {{< /details >}}
 
 
-## POST Request
+### POST Request
 
 - -H → sets the content-type
 - -d → sends the JSON payload
@@ -187,7 +204,7 @@ curl -sS-X POST https://fakestoreapi.com/products \
     "category": "electronic"
 }' | jq
 ```
-***Outpuut:***
+***Output:***
 
 > ```json
 > {
@@ -200,7 +217,7 @@ curl -sS-X POST https://fakestoreapi.com/products \
 > }
 > ```
 
-## PUT & PATCH Requests
+### PUT & PATCH Requests
 
 ```bash
 curl -sS -X PUT https://fakestoreapi.com/products/21 \
@@ -226,7 +243,7 @@ curl -sS -X PUT https://fakestoreapi.com/products/21 \
 }
 ```
 
-### Use with JSON file
+#### Use with JSON file
 
 ```bash
 curl -X PATCH https://fakestoreapi.com/products/21 \
@@ -245,9 +262,9 @@ curl -X PATCH https://fakestoreapi.com/products/21 \
 }
 ```
 
-## Authentication
+### Authentication
 
-### Get Token
+#### Get Token
 
 - `--cookie-jar cookies.txt`: Saves cookies (e.g., access tokens) to `cookies.txt` after the request.
 
@@ -277,7 +294,7 @@ curl -sS -X POST https://dummyjson.com/auth/login \
 >   "image": "https://dummyjson.com/icon/emilys/128"
 > ```
 
-### Refresh Token
+#### Refresh Token
 
 ```bash
 curl -sS -X POST https://dummyjson.com/auth/refresh \
@@ -308,3 +325,115 @@ curl -sS -X POST https://dummyjson.com/auth/refresh \
 > 	"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." // new refreshToken (returned in both response and cookies) 
 > }
 > ```
+
+
+## Modern HTTP Clients
+
+### xh - The Modern HTTP Swiss Army Knife 🚀
+
+Think of it as curl's cool, modern cousin that speaks your language.
+
+#### What makes xh special? ✨
+
+- 🎯 **Developer-Friendly Syntax**
+  - No more wrestling with complex flags
+  - Commands read like plain English
+  - Color-coded output that's easy on the eyes 👀
+
+- ⚡ **Blazingly Fast**
+  - Built in Rust for maximum performance
+  - Handles large requests like a champ
+  - Perfect for those "I need it NOW" moments
+
+- 🎪 **Features**
+  - JSON highlighting right out of the box
+  - Built-in authentication helpers
+  - HTTPS, custom headers, you name it!
+
+Here's a quick taste of how friendly it is:
+
+*Let's Post a New Product!* 🛍️
+
+##### Using curl (The Classic Way) 🔧
+```bash
+curl -sS -X POST https://fakestoreapi.com/products \
+-H "Content-Type: application/json" \
+-d '{
+    "title": "Raspberry Pi 4",
+    "price": 13.5,
+    "description": "lorem ipsum",
+    "image": "https://i.pravatar.cc",
+    "category": "electronic"
+}' | jq
+```
+
+##### Using xh (The Modern Way) ✨
+```bash
+xh POST https://fakestoreapi.com/products \
+    title="Raspberry Pi 4" \
+    price:=13.5 \
+    description="lorem ipsum" \
+    image="https://i.pravatar.cc" \
+    category="electronic"
+```
+
+#### What's Different? 👀
+
+1. **Syntax Simplicity** 🎯
+   - curl: Needs `-X POST`, `-H` for headers, `-d` for data
+   - xh: Just `POST` and your data - that's it!
+
+2. **JSON Handling** 📦
+   - curl: Requires manual JSON formatting and `| jq` for pretty output
+   - xh: Automatically formats JSON and handles content types
+
+3. **Type Inference** 🧠
+   - curl: Everything is a string in JSON
+   - xh: Smart type handling (notice `:=` for numbers)
+
+4. **Headers** 📝
+   - curl: Must explicitly set `Content-Type`
+   - xh: Automatically handles common headers
+
+{{< notice tip >}}
+
+With xh, you can even preview your request before sending:
+```bash
+xh --print=HB POST https://fakestoreapi.com/products \
+    title="Raspberry Pi 4"
+```
+(H for headers, B for body)
+
+{{< /notice >}}
+
+### HTTPie - The Colorful Pioneer 🎨
+
+Started as a command-line marvel, it's now evolved into a full-featured suite that speaks HTTP in your language.
+
+
+{{< notice notice >}}
+Use HTTPie Desktop for visual debugging and team sharing, but keep the CLI handy for quick checks and automation scripts!
+{{< /notice >}}
+
+```bash
+# Our example using HTTPie
+http POST https://fakestoreapi.com/products \
+    title="Raspberry Pi 4" \
+    price:=13.5 \
+    description="lorem ipsum" \
+    image="https://i.pravatar.cc" \
+    category="electronic"
+```
+
+## Feature Comparison 📊
+
+| Feature | HTTPie 🌈 | xh ⚡ | curl 🐎 |
+|---------|-----------|-------|----------|
+| Syntax | Modern & Friendly | Modern & Friendly | Traditional |
+| Speed | Fast | Very Fast (Rust) | Fast |
+| JSON Handling | Auto | Auto | Manual (needs jq) |
+| Colors | Built-in | Built-in | None |
+| Learning Curve | Easy | Easy | Steeper |
+| Platform Support | Excellent | Good | Excellent |
+| Memory Usage | Medium | Low | Low |
+
