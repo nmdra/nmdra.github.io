@@ -1,9 +1,9 @@
 ---
 author: nimendra
 title: Goodbye Postman?👋 CLI Tools That Will Change Your API Testing Forever
-description: "A comprehensive guide to command-line HTTP clients.Deep dive into curl, HTTPie, and xh"
-date: 2024-11-08
-lastmod: 2024-11-10
+description: "A comprehensive guide to command-line HTTP clients(curl, HTTPie, and xh)."
+date: 2024-11-07
+lastmod: 2024-11-15
 tags: ["curl","xh","httpie","postman","api"]
 categories: ["api","devops","devtools"]
 showtoc: true
@@ -324,12 +324,13 @@ curl -sS -X POST https://dummyjson.com/auth/refresh \
 > }
 > ```
 
+---
 
 ## Modern HTTP Clients
 
 ### xh - The Modern HTTP Swiss Army Knife 🚀
 
-Think of it as curl's cool, modern cousin that speaks your language.
+🔗 https://github.com/ducaale/xh
 
 #### What makes xh special? ✨
 
@@ -340,13 +341,11 @@ Think of it as curl's cool, modern cousin that speaks your language.
 
 - ⚡ **Blazingly Fast**
   - Built in Rust for maximum performance
-  - Handles large requests like a champ
-  - Perfect for those "I need it NOW" moments
 
 - 🎪 **Features**
   - JSON highlighting right out of the box
   - Built-in authentication helpers
-  - HTTPS, custom headers, you name it!
+  - HTTPS, custom headers
 
 Here's a quick taste of how friendly it is:
 
@@ -406,15 +405,13 @@ xh --print=HB POST https://fakestoreapi.com/products \
 
 ### HTTPie
 
-Started as a command-line marvel, it's now evolved into a full-featured suite that speaks HTTP in your language.
+Started as a command-line marvel, it's now evolved into a full-featured suite.
+
+🔗 https://httpie.io/cli
 
 
-{{< notice notice >}}
-Use HTTPie Desktop for visual debugging and team sharing, but keep the CLI handy for quick checks and automation scripts!
-{{< /notice >}}
-
+##### Example
 ```bash
-# Our example using HTTPie
 http POST https://fakestoreapi.com/products \
     title="Raspberry Pi 4" \
     price:=13.5 \
@@ -422,6 +419,18 @@ http POST https://fakestoreapi.com/products \
     image="https://i.pravatar.cc" \
     category="electronic"
 ```
+{{< notice tip >}}
+you can try above command using httpie's online terminal.  
+🔗 https://httpie.io/cli/run
+{{< /notice >}}
+
+{{< notice info >}}
+Use HTTPie Desktop for visual debugging and team sharing, but keep the CLI handy for quick checks and automation scripts!   
+Try web app:- https://httpie.io/app
+{{< /notice >}}
+
+---
+
 
 ## Feature Comparison 📊
 
