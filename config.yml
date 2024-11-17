@@ -55,14 +55,15 @@ params:
     buttons:
       - name: About
         url: /about/#about-me
+      - name: Blog
+        url: /blog
       - name: Contact
         url: /about/#contact-me
       # - name: Resume
       #   url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
       - name: Resume
         url: /resume
-      - name: Blog
-        url: /blog
+
   
   socialIcons:
     # - name: cv
@@ -75,6 +76,8 @@ params:
       url: "https://x.com/nimendra_"
     - name: email
       url: "mailto:nimendraonline@gmail.com"
+    - name: "rss"
+      url: "https://blog.nimendra.xyz/index.xml"
 
   cover:
     linkFullImages: true
