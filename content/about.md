@@ -12,23 +12,29 @@ ShowCodeCopyButtons: true
 # About Me
 
 + 👋 I'm **Nimendra**.
-+ 🎓 Student at the [Sri Lanka Institute of Information Technology(SLIIT)](https://www.sliit.lk/) pursuing a BSc (Hons) in Information Technology.
++ 🎓 Student at the [Sri Lanka Institute of Information Technology(SLIIT)](https://www.sliit.lk/) pursuing a BSc (Hons) in Information Technology Specialising in Software Engineering
++ I'm passionate about Software Engineering, DevOps, Linux, Open Source, and philosophy.
++ In free time reading books(mostly sci-fi and self-help) and manga.
 
 ---
 
 # Now
 
+`Last update: 2024-12-28`
+
 *[what is this](https://nownownow.com/about)*
 
-+ **Now**: I am dedicated to mastering the MERN stack while simultaneously honing my skills in DevOps.
-
-+ In my free time, you can find me 📚 immersed in books and 📺 enjoying captivating Animes. It's a delightful way for me to relax and explore new worlds of imagination.
+- I’m currently learning AWS, Terraform, Kubernetes (K8s), and Go (Golang).
+- Now i’m reading,([goodreads.com/nimendra](https://www.goodreads.com/nimendra))
+  - The Dark Forest
+  - Mastery
+  - Nexus
+- I’m eagerly waiting for Severance Season 2, the Sakamoto Days anime, and the upcoming Superman movie.
 
 ---
 
 # Contact Me
 
-- 📫 Gmail: **[nimendraonline@gmail.com](mailto://nimendraonline@gmail.com)**
 - 🐦 Twitter: **[@nimendra_](https://twitter.com/nimendra_)**
 - 👨🏻‍💼 LinkedIn: **[in/nimendra](https://www.linkedin.com/in/nimendra/)**
-
+- 📫 Gmail: **[nimendraonline@gmail.com](mailto://nimendraonline@gmail.com)**
