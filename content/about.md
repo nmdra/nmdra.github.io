@@ -27,7 +27,7 @@ ShowCodeCopyButtons: true
 - I’m currently learning AWS, Terraform, Kubernetes (K8s), and Go (Golang).
 - Now i’m reading,([goodreads.com/nimendra](https://www.goodreads.com/nimendra))
   - The Dark Forest
-  - Mastery
+  - Mastery 
   - Nexus
 - I’m eagerly waiting for Severance Season 2, the Sakamoto Days anime, and the upcoming Superman movie.
 
@@ -35,6 +35,6 @@ ShowCodeCopyButtons: true
 
 # Contact Me
 
-- 🐦 Twitter: **[@nimendra_](https://twitter.com/nimendra_)**
+- 🐦 Twitter: **[@nimendra_](https://x.com/nimendra_)**
 - 👨🏻‍💼 LinkedIn: **[in/nimendra](https://www.linkedin.com/in/nimendra/)**
 - 📫 Gmail: **[nimendraonline@gmail.com](mailto://nimendraonline@gmail.com)**
