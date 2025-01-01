@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/nmdra/nmdra.github.io?style=social)](https://github.com/nmdra/nmdra.github.io/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/nmdra/nmdra.github.io?style=social)](https://github.com/nmdra/nmdra.github.io/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/nmdra/nmdra.github.io)](https://github.com/nmdra/nmdra.github.io/issues)
+[![Build & Deploy](https://github.com/nmdra/nmdra.github.io/actions/workflows/hugo.yaml/badge.svg)](https://github.com/nmdra/nmdra.github.io/actions/workflows/hugo.yaml)
 
 ---
 
