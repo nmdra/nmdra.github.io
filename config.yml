@@ -74,6 +74,8 @@ params:
       url: "https://www.linkedin.com/in/nimendra/"
     - name: x
       url: "https://x.com/nimendra_"
+    - name: bluesky
+      url: "https://bsky.app/profile/nimendra.xyz"
     - name: email
       url: "mailto:nimendraonline@gmail.com"
     - name: "rss"
