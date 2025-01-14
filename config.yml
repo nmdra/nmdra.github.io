@@ -12,7 +12,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Nimendra
-  description: "Welcome to my website!"
+  description: "Welcome to My Blog!"
   keywords: [Blog]
   DateFormat: "January 2, 2006"
   defaultTheme: dark # dark, light
@@ -47,7 +47,7 @@ params:
     # Needs to be explicitly set
     enabled: true
     title: "Hey \U0001F44B, I'm Nimendra"
-    subtitle: "Software Engineering Undergraduate"
+    subtitle: "Self Learner | Cloud and DevOps Enthusiast | Bookworm"
     imageUrl: images/profile.webp
     imageWidth: 150
     imageHeight: 150
