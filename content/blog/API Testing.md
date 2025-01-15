@@ -1,7 +1,7 @@
 ---
 author: nimendra
 title: Goodbye Postman?👋 CLI Tools That Will Change Your API Testing Forever
-description: "A comprehensive guide to command-line HTTP clients(curl, HTTPie, and xh)."
+summary: "A comprehensive guide to command-line HTTP clients(curl, HTTPie, and xh)."
 date: 2024-11-07
 lastmod: 2024-11-15
 tags: ["curl","xh","httpie","postman","api"]

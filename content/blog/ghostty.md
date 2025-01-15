@@ -1,7 +1,7 @@
 ---
 author: Nimendra
 title: "Ghostty First Impression"
-description: "I've tried Ghostty, and here are my quick review."
+summary: "I've tried Ghostty, and here are my quick review."
 date: 2024-12-28
 lastmod: 2024-12-28
 tags: ["terminal","linux"]

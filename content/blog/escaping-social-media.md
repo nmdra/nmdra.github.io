@@ -1,7 +1,7 @@
 ---
 author: Nimendra
 title: "9 Simple Tips to Escaping Social Media"
-description: "My tips to step away from social media"
+summary: "My tips to step away from social media"
 date: 2025-01-15
 lastmod: 2025-01-15
 tags: ["Thoughts","Internet", "Social Media"]
