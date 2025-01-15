@@ -22,6 +22,7 @@ editPost:
 
 ### 1. **Don’t feed the trolls.** 
   Seriously, they thrive on attention. Save your energy for better things.[^1]  
+  If someone replies to a troll, they end up becoming a troll themselves.
   > "You’re going to see a lot of stupid stuff out there and you’re going to feel like you need to correct it. One time I was up late on my laptop and my wife yelled at me, 'Quit picking fights on Twitter and go make something.'" – *Austin Kleon, Keep Going*
 ### 2. **Ditch the apps.** 
   Uninstall those time-suckers from your phone (or whatever device you can’t put down).**Go old school—use the web.** And don’t forget an ad-blocker to keep distractions at bay.  
@@ -52,5 +53,7 @@ Here are some tools that helped me stay on track:
 - [Youtube Customization](https://fmhy.net/social-media-tools#youtube-customization)
 
 [^1]: https://austinkleon.com/2017/09/28/i-will-not-argue-with-strangers-on-the-internet/
+
+🗨 [Hacker News Discussion](https://news.ycombinator.com/item?id=42708116)
 
 `last update: 2025-01-15 11:53`
