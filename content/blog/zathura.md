@@ -54,7 +54,7 @@ Here's my `zathurarc` configuration for a Gruvbox-themed experience:
 
 # General Settings
 set guioptions "shv"
-set page-padding 1
+set page-padding 2
 set adjust-open "best-fit"
 set window-height 3000
 set window-width 3000
@@ -69,6 +69,7 @@ set selection-clipboard "clipboard"
 set database "sqlite"
 
 # Notification Settings
+# https://github.com/eastack/zathura-gruvbox
 set notification-error-bg "rgba(242,229,188,1)"  # bg
 set notification-error-fg "rgba(157,0,6,1)"  # bright:red
 set notification-warning-bg "rgba(242,229,188,1)"  # bg
@@ -120,13 +121,15 @@ map r reload
 map R rotate
 map c recolor
 map p print
-map g goto top
+map g goto top 
+map <Return> goto
 map <C-b> feedkeys ":bmark "
 map u follow
-map <Return> toggle_presentation
-map [presentation] <Return> toggle_presentation 
+map <C-f> toggle_presentation
+map [presentation] <C-f> toggle_presentation 
 
 # Index Mode
+# https://github.com/alezost/config/blob/master/zathura/zathurarc
 map [index] i toggle_index
 map [index] <Tab> navigate_index toggle
 map [index] <ShiftTab> navigate_index expand-all
@@ -136,10 +139,9 @@ I use this script to open files.
 ```bash 
 #!/bin/bash
 
-# Select a book or paper using fd and fzf
+# Select a book using fd and fzf
 files=$(fd --follow --type f --extension pdf --extension epub | fzf --height 75% --reverse --no-info --multi --prompt "Select Book/Paper: ")
 
-# Check if a selection was made
 if [[ -n "$files" ]]; then
   # Open each selected file
   while IFS= read -r file; do
