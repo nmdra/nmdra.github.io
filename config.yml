@@ -7,15 +7,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
-# googleAnalytics: G-C917SZ3ZQE
-
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Nimendra
   description: "Welcome to My Blog!"
   keywords: [Blog]
   DateFormat: "January 2, 2006"
-  defaultTheme: dark # dark, light
+  defaultTheme: auto # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: false
@@ -43,31 +41,35 @@ params:
     text: "Nimendra"
 
   # profile-mode
-  profileMode:
-    # Needs to be explicitly set
-    enabled: true
-    title: "Hey \U0001F44B, I'm Nimendra"
-    subtitle: "Self Learner | Cloud and DevOps Enthusiast | Bookworm"
-    imageUrl: images/profile.webp
-    imageWidth: 150
-    imageHeight: 150
-    imageTitle: "Profile image"
-    buttons:
-      - name: About
-        url: /about/#about-me
-      - name: Blog
-        url: /blog
-      - name: Contact
-        url: /about/#contact-me
-      # - name: Resume
-      #   url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
-      - name: Resume
-        url: /resume
+  # profileMode:
+  #   # Needs to be explicitly set
+  #   enabled: true
+  #   title: "Hey \U0001F44B, I'm Nimendra"
+  #   subtitle: "Self Learner | Cloud and DevOps Enthusiast | Bookworm"
+  #   imageUrl: images/profile.webp
+  #   imageWidth: 150
+  #   imageHeight: 150
+  #   imageTitle: "Profile image"
+  #   buttons:
+  #     - name: About
+  #       url: /about/#about-me
+  #     - name: Blog
+  #       url: /blog
+  #     - name: Contact
+  #       url: /about/#contact-me
+  #     # - name: Resume
+  #     #   url: "https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf"
+  #     - name: Resume
+  #       url: /resume
+  #
+  #
+  homeInfoParams:
+    Title: "Hey 👋, I'm Nimendra"
+    Content: "I'm a self-learner, passionate about Cloud and DevOps, and an avid bookworm.  
+      Explore more **[about me](/about/#about-me)**, check out my **[blog](/blog)**, or **[get in touch](/about/#contact-me)**.  
+      You can also view my ***[resume](https://github.com/nmdra/Resume/releases/latest/download/Nimendra-Resume.pdf)***."
 
-  
   socialIcons:
-    # - name: cv
-    #   url:
     - name: github
       url: "https://github.com/nmdra"
     - name: linkedin
@@ -86,8 +88,6 @@ params:
     hidden: false
     hiddenInList: false
     hiddenInSingle: true
-
-
 
 outputs:
   home:
