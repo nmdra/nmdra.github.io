@@ -1,7 +1,7 @@
 baseURL: "https://nmdra.github.io"
 languageCode: "en"
 title: Nimendra
-theme: ["hugo-redirect","hugo-notice", "PaperMod"]
+theme: ["hugo-notice", "PaperMod"]
 
 minify:
   disableXML: true
