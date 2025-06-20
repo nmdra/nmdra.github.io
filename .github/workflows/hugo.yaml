@@ -29,7 +29,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.138.0
+      HUGO_VERSION: 0.147.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -47,6 +47,9 @@ jobs:
       - name: Update theme to Latest commit
         run: git submodule update --remote --merge
       - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
         run: |
           hugo \
             --buildDrafts --gc --minify \
