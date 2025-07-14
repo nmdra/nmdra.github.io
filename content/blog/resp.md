@@ -18,9 +18,7 @@ editPost:
   appendFilePath: true
 --- 
 
-Redis is a high-performance in-memory data store, widely used as a database, cache, and message broker. Unlike many web services that use HTTP, Redis uses a custom protocol known as the **Redis Serialization Protocol (RESP)** for communication between clients and servers.
-
-In this article, we’ll explore RESP, how it compares to HTTP, and what makes it ideal for Redis’s design philosophy.
+Unlike many web services that use HTTP, Redis uses a custom protocol known as the **Redis Serialization Protocol (RESP)** for communication between clients and servers.
 
 ## What is RESP?
 

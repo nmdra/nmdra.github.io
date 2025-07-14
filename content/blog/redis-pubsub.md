@@ -53,18 +53,6 @@ Redis Pub/Sub involves three key entities:
 
 > Redis Streams, Kafka, RabbitMQ support asynchronous message delivery by persisting messages.
 
-## Limitations of Redis Pub/Sub
-
-| Feature                 | Redis Pub/Sub                   | Go Channels           |
-| ----------------------- | ------------------------------- | --------------------- |
-| Works across processes  | Yes                             | No (local only)       |
-| Message persistence     | No (fire-and-forget)            | No                    |
-| Requires active clients | Yes                             | Yes                   |
-| Scale                   | High (thousands of connections) | Local goroutines only |
-| Brokered                | Yes (via Redis server)          | No                    |
-
-Redis Pub/Sub is **great for lightweight, real-time messaging**, but not suitable where **delivery guarantees** or **durability** are critical.
-
 ## Redis Pub/Sub with Go
 
 Using the `go-redis` library, Redis Pub/Sub integrates cleanly with Go applications.
