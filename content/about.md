@@ -21,7 +21,9 @@ ShowCodeCopyButtons: true
 # Now
 
 `Last update: 2026-03-19`
+
 *[what is this](https://nownownow.com/about)*
+
 - I'm currently learning AWS, Kubernetes (K8s), Go (Golang), Distributed Systems, and System Design. Also exploring some ML concepts on the side.
 - Now i'm reading, ([goodreads.com/nimendra](https://www.goodreads.com/nimendra))
   - The Will of Many
