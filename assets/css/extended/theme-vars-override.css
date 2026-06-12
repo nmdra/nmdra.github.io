@@ -13,8 +13,8 @@
     --tertiary:        #ccd0da; /* surface0 */
     --content:         #4c4f69; /* text     */
     --code-bg:         #ccd0da; /* surface0 */
-    --code-block-bg:   #e6e9ef; /* mantle   */
-    --hljs-bg:         #e6e9ef; /* mantle   */
+    --code-block-bg:   #11111b; /* crust (dark mode override) */
+    --hljs-bg:         #11111b; /* crust (dark mode override) */
     --border:          #bcc0cc; /* surface1 */
     color-scheme: light;
 }

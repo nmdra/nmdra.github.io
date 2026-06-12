@@ -142,7 +142,7 @@ markup:
     noClasses: false
     noHl: false
     tabWidth: 4
-    style: catppuccin-latte
+    style: catppuccin-mocha
   tableOfContents:
     startLevel: 2
     endLevel: 4
