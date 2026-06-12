@@ -135,8 +135,13 @@ menu:
 
 markup:
   highlight:
-    codeFences: false
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
     noClasses: false
+    noHl: false
+    tabWidth: 4
     style: catppuccin-latte
   tableOfContents:
     startLevel: 2
