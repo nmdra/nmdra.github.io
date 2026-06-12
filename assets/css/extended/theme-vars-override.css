@@ -1,63 +1,72 @@
-/* TOKYONIGHT THEME COLOURS */
-/*
-background: #1a1b26,
-"black": "#15161e",
-"blue": "#7aa2f7",
-"brightBlack": "#414868",
-"brightBlue": "#7aa2f7",
-"brightCyan": "#7dcfff",
-"brightGreen": "#9ece6a",
-"brightPurple": "#9d7cd8",
-"brightRed": "#f7768e",
-"brightWhite": "#c0caf5",
-"brightYellow": "#e0af68",
-"cursorColor": "#c0caf5",
-"cyan": "#7dcfff",
-"foreground": "#c0caf5",
-"green": "#9ece6a",
-"name": "Tokyo Night",
-"purple": "#bb9af7",
-"red": "#f7768e",
-"selectionBackground": "#283457",
-"white": "#a9b1d6",
- yellow: #e0af68
- */
+/* =============================================================
+   Catppuccin Palette
+   Light → Latte  |  Dark → Mocha
+   https://github.com/catppuccin/palette
+   ============================================================= */
 
-/* Change Dark Theme Colours */
+/* ── Latte (light theme) ──────────────────────────────────── */
+:root {
+    --theme:           #eff1f5; /* base     */
+    --entry:           #e6e9ef; /* mantle   */
+    --primary:         #4c4f69; /* text     */
+    --secondary:       #6c6f85; /* subtext0 */
+    --tertiary:        #ccd0da; /* surface0 */
+    --content:         #4c4f69; /* text     */
+    --code-bg:         #ccd0da; /* surface0 */
+    --code-block-bg:   #e6e9ef; /* mantle   */
+    --hljs-bg:         #e6e9ef; /* mantle   */
+    --border:          #bcc0cc; /* surface1 */
+    color-scheme: light;
+}
+
+/* ── Mocha (dark theme) ───────────────────────────────────── */
+:root[data-theme="dark"],
 .dark {
-    --entry: #1a1b26;
-    --theme: #16161e;
-    --primary: #c0caf5;
-    --secondary: #a9b1d6;
-    --tertiary: #283457;
-    --content: #a9b1d6;
-    --hljs-bg: #292e42;
-    --code-bg: #292e42;
-    --border: #9d7cd8;
+    --theme:           #1e1e2e; /* base     */
+    --entry:           #181825; /* mantle   */
+    --primary:         #cdd6f4; /* text     */
+    --secondary:       #a6adc8; /* subtext0 */
+    --tertiary:        #313244; /* surface0 */
+    --content:         #cdd6f4; /* text     */
+    --code-bg:         #313244; /* surface0 */
+    --code-block-bg:   #11111b; /* crust    */
+    --hljs-bg:         #11111b; /* crust    */
+    --border:          #45475a; /* surface1 */
+    color-scheme: dark;
 }
 
-/* Change Hover Color */
-/* light Theme */
-a:hover {
- color:#DB2777
-}
+/* ── Hover accents ────────────────────────────────────────── */
+/* Latte: Mauve */
+a:hover,
 svg:hover {
- color:#DB2777
+    color: #8839ef;
 }
 
-/* Dark Theme */
-.dark a:hover {
- color:#7dcfff
-}
-.dark svg:hover {
- color:#7dcfff
+/* Mocha: Mauve */
+.dark a:hover,
+.dark svg:hover,
+:root[data-theme="dark"] a:hover,
+:root[data-theme="dark"] svg:hover {
+    color: #cba6f7;
 }
 
+/* ── List page background ─────────────────────────────────── */
+.list {
+    background: var(--code-bg);
+}
+
+[data-theme="dark"] .list,
+.dark .list {
+    background: var(--theme);
+}
+
+/* ── Image styling ────────────────────────────────────────── */
 .post-content img {
     border-radius: 0.5rem;
     margin: 1rem 0;
 }
 
+/* ── TOC ──────────────────────────────────────────────────── */
 .toc details summary {
     cursor: pointer;
     margin-inline-start: 20px;
