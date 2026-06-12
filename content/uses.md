@@ -73,7 +73,7 @@ ytmusic="mpv --vo=null --video=no --pause=no --no-video --term-osd-bar --loop-pl
 
 ## Theme, Font, and Color Scheme
 
-I embrace the **[Tokyonight](https://github.com/folke/tokyonight.nvim)** color scheme for all my applications, including this website's Dark Mode. When it comes to my terminal font, I opt for **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)**, specifically the Nerd Font version,pleasant coding experience. 🎨🖥️✨
+I embrace the **[Catppuccin](https://github.com/catppuccin/catppuccin)** color scheme for all my applications, including this website (Mocha for dark mode, Latte for light mode). When it comes to my terminal font, I opt for **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)**, specifically the Nerd Font version, for a pleasant coding experience. 🎨🖥️✨
 
 ## This Website
 

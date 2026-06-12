@@ -1,5 +1,6 @@
 ---
 title: Blog
+description: "My thoughts, opinions, brainstorms, and tutorials on software engineering, DevOps, and Linux."
 ---
 
-**My thoughts, opinions, Brainstroms & some Tutorials**
+**My thoughts, opinions, Brainstorms & some Tutorials**
