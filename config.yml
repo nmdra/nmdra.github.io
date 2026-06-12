@@ -1,7 +1,8 @@
-baseURL: "https://nmdra.github.io"
-languageCode: "en"
+baseURL: "https://blog.nimendra.xyz/"
+locale: "en"
 title: Nimendra
 theme: ["hugo-notice", "PaperMod"]
+enableRobotsTXT: true
 
 minify:
   disableXML: true
@@ -81,7 +82,7 @@ params:
     - name: email
       url: "mailto:nimendraonline@gmail.com"
     - name: "rss"
-      url: "https://blog.nimendra.xyz/index.xml"
+      url: "/index.xml"
 
   cover:
     linkFullImages: true
@@ -89,11 +90,19 @@ params:
     hiddenInList: false
     hiddenInSingle: true
 
+outputFormats:
+  LLMSTXT:
+    baseName: llms
+    mediaType: text/plain
+    isPlainText: true
+    notAlternative: true
+
 outputs:
   home:
     - HTML
     - JSON
     - RSS
+    - LLMSTXT
 
 menu:
   main:
@@ -117,6 +126,10 @@ menu:
       name: Uses
       url: /uses
       weight: 4
+    - identifier: archives
+      name: Archives
+      url: /archives
+      weight: 5
 
 markup:
   highlight:
