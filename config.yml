@@ -16,7 +16,7 @@ params:
   description: "Welcome to My Blog!"
   keywords: [Blog]
   DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
+  defaultTheme: dark # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: false
