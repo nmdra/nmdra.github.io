@@ -1,0 +1,60 @@
+{{- /* ─────────────────────────────────────────────────────────────
+     highlight.js — Catppuccin Latte (light) / Mocha (dark)
+     Loaded only on pages that may contain code blocks.
+     ───────────────────────────────────────────────────────────── */}}
+
+{{- /* Catppuccin Latte — default (light mode) */}}
+<link rel="stylesheet" id="hljs-light"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/catppuccin-latte.min.css"
+  crossorigin="anonymous">
+
+{{- /* Catppuccin Mocha — dark mode (disabled by default) */}}
+<link rel="stylesheet" id="hljs-dark"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/catppuccin-mocha.min.css"
+  crossorigin="anonymous"
+  disabled>
+
+{{- /* highlight.js core */}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+  crossorigin="anonymous"></script>
+
+{{- /* Common languages */}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/bash.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/yaml.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/toml.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/nginx.min.js" crossorigin="anonymous"></script>
+
+<script>
+(function () {
+  // Initialise HLJS
+  hljs.highlightAll();
+
+  // ── Theme sync ───────────────────────────────────────────────
+  const lightSheet = document.getElementById('hljs-light');
+  const darkSheet  = document.getElementById('hljs-dark');
+
+  function applyHljsTheme(isDark) {
+    lightSheet.disabled = isDark;
+    darkSheet.disabled  = !isDark;
+  }
+
+  // Read PaperMod's persisted theme preference
+  function isDarkMode() {
+    const stored = localStorage.getItem('pref-theme');
+    if (stored) return stored === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  // Apply on load
+  applyHljsTheme(isDarkMode());
+
+  // Watch for PaperMod's theme toggle (it sets pref-theme in localStorage
+  // and dispatches a storage event on other tabs; for the same tab we
+  // observe the data-theme attribute on <html>)
+  const observer = new MutationObserver(() => {
+    applyHljsTheme(document.documentElement.getAttribute('data-theme') === 'dark');
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>

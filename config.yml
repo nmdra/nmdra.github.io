@@ -1,8 +1,10 @@
 baseURL: "https://blog.nimendra.xyz/"
-locale: "en"
-title: Nimendra
+locale: "en-US"
+title: "Nimendra"
 theme: ["hugo-notice", "PaperMod"]
 enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
 
 minify:
   disableXML: true
@@ -33,7 +35,7 @@ params:
     location: 0
     distance: 1000
     threshold: 0.4
-    minMatchCharLength: 0
+    minMatchCharLength: 2
     # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "summary"]
 
@@ -133,18 +135,14 @@ menu:
 
 markup:
   highlight:
-    anchorLineNos: false
-    codeFences: true
-    guessSyntax: true
-    hl_Lines: ""
-    hl_inline: false
-    lineAnchors: ""
-    lineNos: true
-    lineNoStart: 0
+    codeFences: false
     noClasses: false
-    noHl: false
-    tabWidth: 4
-    style: tokyonight-storm
+    style: catppuccin-latte
   tableOfContents:
+    startLevel: 2
     endLevel: 4
+    ordered: false
 
+sitemap:
+   changeFreq: weekly
+   priority: 0.5
