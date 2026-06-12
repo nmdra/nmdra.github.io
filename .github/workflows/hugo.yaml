@@ -1,4 +1,5 @@
 name: Build & Deploy
+
 on:
   push:
     paths-ignore:
@@ -8,10 +9,11 @@ on:
       - main
   workflow_dispatch:
 
-# Allow one concurrent deployment
+# Allow one concurrent deployment, but don't cancel in-progress deploys
+# to avoid leaving the site in a broken state mid-deploy
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 # Default to bash
 defaults:
@@ -25,40 +27,39 @@ permissions:
   id-token: write
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.147.0
+      HUGO_VERSION: 0.161.1
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          submodules: recursive   # initialise and checkout theme submodules
+          fetch-depth: 0          # full history for .GitInfo and .Lastmod
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb \
+            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Get Theme
-        run: git submodule update --init --recursive
-      - name: Update theme to Latest commit
-        run: git submodule update --remote --merge
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
-          hugo \
-            --buildDrafts --gc --minify \
-            --baseURL ${{ steps.pages.outputs.base_url }}
+          hugo --gc --minify
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-  # Deployment job
+
   deploy:
     environment:
       name: github-pages
@@ -68,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
