@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="1200" height="580" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt caching across two requests</title>
+  <desc id="desc">Request 1 prefills the full prompt and stores K and V tensors in the KV cache. Request 2 reuses the cached prefix and prefills only the new suffix.</desc>
+
+  <defs>
+    <marker id="arrGray" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <style>
+    @keyframes flow {
+      to { stroke-dashoffset: -14; }
+    }
+    .flow {
+      stroke-dasharray: 7 7;
+      animation: flow 0.9s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flow { animation: none; }
+    }
+  </style>
+
+  <rect x="0" y="0" width="1200" height="580" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="60" y="44" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700" fill="#0f172a">Prompt caching across two requests</text>
+  <text x="60" y="66" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13.5" fill="#64748b">The KV cache computed for Request 1's prefix is reused by Request 2 - only the new suffix is computed.</text>
+
+  <!-- ================= REQUEST 1 ================= -->
+  <text x="60" y="112" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#334155">Request 1</text>
+
+  <!-- Token chips row 1 -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="600" fill="#0f172a">
+    <rect x="200" y="80" width="108" height="46" rx="10" fill="#38bdf8"/><text x="254" y="108" text-anchor="middle">[system]</text>
+    <rect x="324" y="80" width="99" height="46" rx="10" fill="#a78bfa"/><text x="374" y="108" text-anchor="middle">[tools]</text>
+    <rect x="439" y="80" width="90" height="46" rx="10" fill="#34d399"/><text x="484" y="108" text-anchor="middle">[user]</text>
+    <rect x="545" y="80" width="126" height="46" rx="10" fill="#fbbf24"/><text x="608" y="108" text-anchor="middle">[assistant]</text>
+    <rect x="687" y="80" width="144" height="46" rx="10" fill="#2dd4bf"/><text x="759" y="108" text-anchor="middle">[tool result]</text>
+    <rect x="847" y="80" width="90" height="46" rx="10" fill="#34d399"/><text x="892" y="108" text-anchor="middle">[user]</text>
+  </g>
+
+  <!-- Bracket over the whole token sequence -->
+  <path d="M200,130 Q568,152 937,130" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M200,130 L200,135" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M937,130 L937,135" stroke="#64748b" stroke-width="2.5"/>
+
+  <!-- Arrow down to prefill -->
+  <line class="flow" x1="568" y1="146" x2="568" y2="162" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+
+  <!-- Prefill box -->
+  <rect x="418" y="168" width="300" height="90" rx="14" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="568" y="193" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#1d4ed8">PREFILL</text>
+  <text x="568" y="220" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#1e293b">computes K and V tensors</text>
+  <text x="568" y="242" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#1e293b">for every token</text>
+
+  <!-- Store arrow to cache -->
+  <line class="flow" x1="718" y1="213" x2="752" y2="213" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+  <text x="735" y="203" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#64748b">store</text>
+
+  <!-- KV cache cylinder -->
+  <g>
+    <path d="M760,170 L760,256 A190,15 0 0 0 1140,256 L1140,170 A190,15 0 0 1 760,170 Z" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.5"/>
+    <path d="M762,190 L1138,190" stroke="#16a34a" stroke-width="1" opacity="0.3"/>
+    <text x="950" y="207" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#15803d">KV CACHE</text>
+    <text x="950" y="229" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13.5" fill="#065f46">K and V for the</text>
+    <text x="950" y="247" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13.5" fill="#065f46">whole prefix</text>
+  </g>
+
+  <!-- ================= REQUEST 2 ================= -->
+  <text x="60" y="380" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#334155">Request 2</text>
+
+  <!-- Brace over reused prefix -->
+  <path d="M200,332 Q568,308 937,332" stroke="#16a34a" stroke-width="2" fill="none" opacity="0.9"/>
+  <text x="568" y="300" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#15803d">same prefix - reused from KV cache</text>
+
+  <!-- Reuse arrow from cache -->
+  <path class="flow" d="M850,272 C 850,340 640,340 598,324" stroke="#16a34a" stroke-width="2" fill="none" stroke-dasharray="7 6" marker-end="url(#arrGreen)"/>
+  <text x="700" y="316" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#15803d">reuse (cache hit)</text>
+
+  <!-- Token chips row 2: faded prefix + new -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="600">
+    <rect x="200" y="350" width="108" height="46" rx="10" fill="#38bdf8" fill-opacity="0.12" stroke="#0284c7" stroke-width="1.5"/><text x="254" y="378" text-anchor="middle" fill="#0369a1">[system]</text>
+    <rect x="324" y="350" width="99" height="46" rx="10" fill="#a78bfa" fill-opacity="0.12" stroke="#7c3aed" stroke-width="1.5"/><text x="374" y="378" text-anchor="middle" fill="#6d28d9">[tools]</text>
+    <rect x="439" y="350" width="90" height="46" rx="10" fill="#34d399" fill-opacity="0.12" stroke="#059669" stroke-width="1.5"/><text x="484" y="378" text-anchor="middle" fill="#047857">[user]</text>
+    <rect x="545" y="350" width="126" height="46" rx="10" fill="#fbbf24" fill-opacity="0.12" stroke="#d97706" stroke-width="1.5"/><text x="608" y="378" text-anchor="middle" fill="#b45309">[assistant]</text>
+    <rect x="687" y="350" width="144" height="46" rx="10" fill="#2dd4bf" fill-opacity="0.12" stroke="#0d9488" stroke-width="1.5"/><text x="759" y="378" text-anchor="middle" fill="#0f766e">[tool result]</text>
+    <rect x="847" y="350" width="90" height="46" rx="10" fill="#34d399" fill-opacity="0.12" stroke="#059669" stroke-width="1.5"/><text x="892" y="378" text-anchor="middle" fill="#047857">[user]</text>
+    <rect x="953" y="350" width="144" height="46" rx="10" fill="#ef4444"/><text x="1025" y="378" text-anchor="middle" fill="#ffffff">[new message]</text>
+  </g>
+
+  <!-- Arrow down to new work -->
+  <line class="flow" x1="1025" y1="398" x2="1025" y2="444" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+
+  <!-- New work box -->
+  <rect x="880" y="450" width="290" height="90" rx="14" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="1025" y="475" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#dc2626">NEW WORK</text>
+  <text x="1025" y="502" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#1e293b">prefill only the</text>
+  <text x="1025" y="524" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#1e293b">new suffix</text>
+</svg>
