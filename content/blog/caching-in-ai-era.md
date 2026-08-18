@@ -24,7 +24,7 @@ You've seen the keywords in provider dashboards and usage logs: `cache hit ratio
 
 Traditional caching is simple to understand: you cache a **response** based on a **request** in a fast store like [Redis](https://github.com/redis/redis). If the same request comes in again, you return the cached response instead of hitting the database.
 
-This is the cache-aside (or lazy loading) pattern: a cache sits between the API and the data source. On a miss, the backend fetches from the source, stores the result, and returns it. On a hit, the backend serves the stored copy with no database query at all. Read-through and write-through variants exist, but cache-aside is the common default for application-level caches.
+This is the cache-aside (or lazy loading) pattern: a cache sits between the API and the data source. On a miss, the backend fetches from the source, stores the result, and returns it. On a hit, the backend serves the stored copy with no database query at all.
 
 Other caching patterns exist too, but this is the most common and simplest.
 
@@ -41,9 +41,9 @@ The key word here is **response**. Traditional caching skips the computation and
 
 ## Why LLMs Break This Model
 
-LLMs are **not deterministic**. Send the same prompt a dozen times and you get different responses each time, even while the provider's usage report shows `cached input tokens`.
+LLMs are **not deterministic**. Send the same prompt a dozen times and you get different responses each time, even while the provider's usage report shows `cached tokens`.
 
-So you can't cache the _answer_. A response cache would serve the same text to every user and every request, which defeats the entire point of a generative model. The output must be computed fresh every time.
+**So you can't cache the _answer_.** A response cache would serve the same text to every user and every request, which defeats the entire point of a generative model. _The output must be computed fresh every time._
 
 What _can_ be cached is the expensive internal state computed before the model generates a single token.
 
@@ -51,7 +51,7 @@ What _can_ be cached is the expensive internal state computed before the model g
 
 ## What Actually Gets Cached: The KV Cache
 
-To see what providers cache, you need to know how a transformer (the core of every modern generative LLM, introduced in the ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762) paper) processes a prompt.
+To see what providers cache, you need to know how a transformer (introduced in the ["Attention Is All You Need"](https://arxiv.org/abs/1706.03762) paper) processes a prompt.
 
 Inside every attention layer, each token's embedding is projected into three vectors:
 
@@ -59,7 +59,11 @@ Inside every attention layer, each token's embedding is projected into three vec
 - **Key (K)**: "what do I contain / represent?"
 - **Value (V)**: "what information do I pass along if selected?"
 
-When a new token is generated, the model compares its query against the keys of all previous tokens to score relevance, then blends the corresponding values. That attention computation is the most expensive part of inference.
+{{< notice tip- "Library Analogy" >}}
+In the Transformer’s attention mechanism, think of Query (Q) as a researcher walking into a library with a specific search topic in mind ("What am I looking for?"), Key (K) as the index label printed on the spine of each book ("What topic do I represent?"), and Value (V) as the actual knowledge written inside those books ("What content do I pass along?"). The system compares the researcher's query (Q) against every book's spine label (K) and passes the similarity scores through a softmax function to determine the exact percentage of attention each book deserves; it then uses those percentages to read and blend together the actual text (V) from the most relevant books into a single contextual output.
+{{< /notice >}}
+
+When a new token is generated, the model compares its query against the keys of all previous tokens to score relevance, then blends the corresponding values. **That attention computation is the most expensive part of inference.**
 
 A transformer processes a prompt in two broad phases:
 
@@ -68,7 +72,8 @@ A transformer processes a prompt in two broad phases:
 
 At each attention layer, every processed token produces a key and a value. For the _next_ generated token to attend to everything that came before, those K and V vectors are needed again, so instead of recomputing them, the model retains them in what's called the **KV cache**.
 
-This is a pure speed optimization: it makes generation much faster, and it doesn't change the model's answers at all. The trade-off is memory: the cache grows with your context length, so longer prompts and bigger batches need more GPU/RAM. Providers use various tricks, like compressing the stored values, to keep that memory under control.
+This is a pure speed optimization: it makes generation much faster, and it doesn't change the model's answers at all.
+The **trade-off is memory**: the cache grows with your context length, so longer prompts and bigger batches need more GPU/RAM. Providers use various tricks, like compressing the stored values, to keep that memory under control.
 
 ## Prompt Caching: Reusing the Prefix
 
