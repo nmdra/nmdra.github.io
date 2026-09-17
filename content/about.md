@@ -12,10 +12,11 @@ ShowCodeCopyButtons: true
 
 # About Me
 
-+ 👋 I'm **Nimendra**.
-+ 🎓 Student at the [Sri Lanka Institute of Information Technology(SLIIT)](https://www.sliit.lk/) pursuing a BSc (Hons) in Information Technology Specialising in Software Engineering
-+ I'm passionate about Software Engineering, DevOps, Linux, Open Source, and philosophy.
-+ In free time reading books(mostly sci-fi and self-help) and manga.
+* 👋 Hey, I’m **Nimendra**.
+* 🎓 I’m currently studying **Software Engineering** at the [Sri Lanka Institute of Information Technology (SLIIT)](https://www.sliit.lk/).
+* 💼 Former **Site Reliability Engineering (SRE) Intern at [WSO2](https://wso2.com/)**.
+* 💻 I’m interested in **Software Engineering, Platform Engineering, AI Integrations, Linux, Open Source, and Philosophy**.
+* 📚 Outside of tech, I spend my time reading **sci-fi, self-help books, and manga**.
 
 ---
 
