@@ -1,0 +1,2 @@
+{{- $diagram := .Inner | strings.TrimSpace -}}
+<div class="mermaid">{{ $diagram | safeHTML }}</div>

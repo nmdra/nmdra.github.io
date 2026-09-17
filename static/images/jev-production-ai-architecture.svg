@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 724" width="100%" role="img" aria-labelledby="title desc">
+  <title id="title">Reasoning-first and decision-first production AI architectures</title>
+  <desc id="desc">In the reasoning-first flow, every event goes to a reasoning LLM and then an agent or action. In the decision-first alternative, Jev routes each event to ignore, execute, human review, or a reasoning LLM and agent.</desc>
+  <style>
+    svg { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .canvas { fill: #ffffff; stroke: #e4e7ec; }
+    .panel { fill: #ffffff; stroke: #cbd5df; }
+    .card, .execute, .reason { fill: #ffffff; stroke: #cbd5df; }
+    .jev { fill: #ffffff; stroke: #2563c5; stroke-width: 2; }
+    .review { fill: #ffffff; stroke: #ad7b3f; }
+    .ink { fill: #1d2939; }
+    .muted { fill: #475467; }
+    .accent { fill: #175cd3; }
+    .rail { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .flow { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; marker-end: url(#arrow); }
+    .signal { fill: #175cd3; pointer-events: none; }
+    .signal.neutral { fill: #667085; }
+    @media (prefers-reduced-motion: reduce) { .signal { display: none; } }
+    .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: .8px; }
+    .headline { font-size: 20px; font-weight: 600; }
+    .label { font-size: 21px; font-weight: 600; }
+    .detail { font-size: 17px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 9 5 1 9" fill="none" stroke="#667085" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" x="1" y="1" width="718" height="722"/>
+  <text class="headline ink" x="32" y="48">Event routing patterns</text>
+
+  <rect class="panel" x="24" y="77" width="320" height="623" rx="8"/>
+  <text class="eyebrow muted" x="48" y="113">REASONING-FIRST</text>
+  <rect class="card" x="64" y="150" width="240" height="58" rx="10"/>
+  <text class="label ink" x="184" y="186" text-anchor="middle">Every event</text>
+  <path class="flow" d="M184 208 V266"/>
+  <circle class="signal neutral" r="3.5" opacity="0">
+    <animateMotion path="M184 208 V266" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <rect class="reason" x="64" y="276" width="240" height="72" rx="10"/>
+  <text class="label ink" x="184" y="306" text-anchor="middle">Reasoning LLM</text>
+  <text class="detail muted" x="184" y="331" text-anchor="middle">For every event</text>
+  <path class="flow" d="M184 348 V407"/>
+  <rect class="card" x="64" y="417" width="240" height="70" rx="10"/>
+  <text class="label ink" x="184" y="459" text-anchor="middle">Agent / action</text>
+  <text class="detail muted" x="184" y="558" text-anchor="middle">Each event incurs</text>
+  <text class="detail muted" x="184" y="582" text-anchor="middle">reasoning-model cost.</text>
+
+  <rect class="panel" x="376" y="77" width="320" height="623" rx="8"/>
+  <text class="eyebrow accent" x="400" y="113">DECISION-FIRST</text>
+  <rect class="card" x="436" y="150" width="220" height="58" rx="10"/>
+  <text class="label ink" x="546" y="186" text-anchor="middle">Every event</text>
+  <path class="flow" d="M546 208 V235"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M546 208 V235" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <rect class="jev" x="436" y="245" width="220" height="66" rx="11"/>
+  <text class="ink" x="546" y="274" text-anchor="middle" font-size="26" font-weight="750">Jev</text>
+  <text class="detail accent" x="546" y="299" text-anchor="middle">Bounded decisions</text>
+
+  <path class="rail" d="M546 311 V331 H403 V570"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M546 311 V331 H403" begin="1.2s" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <path class="flow" d="M403 374 H426"/>
+  <path class="flow" d="M403 440 H426"/>
+  <path class="flow" d="M403 506 H426"/>
+  <path class="flow" d="M403 572 H426"/>
+
+  <rect class="card" x="436" y="347" width="220" height="54" rx="9"/>
+  <text class="label ink" x="546" y="381" text-anchor="middle">Ignore</text>
+  <rect class="execute" x="436" y="413" width="220" height="54" rx="9"/>
+  <text class="label ink" x="546" y="447" text-anchor="middle">Execute</text>
+  <rect class="review" x="436" y="479" width="220" height="54" rx="9"/>
+  <text class="label ink" x="546" y="513" text-anchor="middle">Human review</text>
+  <rect class="reason" x="436" y="545" width="220" height="54" rx="9"/>
+  <text class="label ink" x="546" y="579" text-anchor="middle">Reasoning LLM</text>
+  <path class="flow" d="M546 599 V619"/>
+  <rect class="card" x="436" y="629" width="220" height="50" rx="9"/>
+  <text class="label ink" x="546" y="661" text-anchor="middle">Agent</text>
+</svg>

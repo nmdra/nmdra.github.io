@@ -15,4 +15,16 @@ images.forEach(img => {
 });
 </script>
 
+<script id="mermaid-loader" type="module" data-url="{{ site.Params.mermaidUrl }}">
+  if (document.querySelector(".mermaid")) {
+    const loader = document.querySelector("#mermaid-loader");
+    const mermaid = await import(loader.dataset.url);
+    mermaid.default.initialize({
+      startOnLoad: true,
+      securityLevel: "strict",
+      theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default"
+    });
+  }
+</script>
+
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "94d17183106f4900815247c33ac5fb80"}'></script><!-- End Cloudflare Web Analytics -->
