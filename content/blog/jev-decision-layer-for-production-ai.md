@@ -8,7 +8,7 @@ tags: ["AI", "LLM", "SRE", "System Design", "Incident Management", "TypeSafe"]
 categories: ["AI", "System Design"]
 author: Nimendra
 showtoc: true
-TocOpen: true
+TocOpen: false
 ShowReadingTime: true
 ShowPostNavLinks: true
 ShowBreadCrumbs: true
@@ -21,28 +21,16 @@ editPost:
   appendFilePath: true
 ---
 
-At 2:13 AM, a checkout alert fires:
+At 2:13 AM, a production alert fires. The first problem is not “why did this happen?” It is “what should we do now?”
 
-```json
-{
-  "service": "checkout-api",
-  "region": "ap-southeast-1",
-  "metric": "HTTP 5XX rate",
-  "value": "18.7%",
-  "threshold": "5%",
-  "duration": "6 minutes",
-  "recent_deployment": true
-}
-```
-
-The system does not yet need a root-cause analysis. First, it needs a few bounded decisions:
+That means making a few bounded decisions:
 
 - Which team owns this?
-- Is it severe enough to page now?
+- Does this require an immediate on-call response?
 - Is there enough confidence to act automatically?
 - Should an incident agent begin investigating?
 
-Operational teams have traditionally handled these decisions with humans or deterministic rules. More recently, general-purpose LLMs have become a third option:
+Operational teams have traditionally handled these decisions with humans or deterministic rules. More recently, general-purpose LLMs have become a third option.
 
 | Approach | Strength | Limitation |
 | --- | --- | --- |
@@ -50,7 +38,7 @@ Operational teams have traditionally handled these decisions with humans or dete
 | Deterministic rules | Fast, cheap, predictable | Brittle when context and exceptions multiply |
 | General-purpose LLM | Flexible and able to return schema-constrained output | A general autoregressive generator is doing a narrow decision task |
 
-Many teams are now exploring LLMs for these decisions, but that introduces another problem: cost and speed.
+Many teams are now exploring LLMs for these decisions, but that introduces another problem: **Cost and Speed**.
 
 **At scale, cost hits the budget and latency hits the SLA.** Frontier-model inference can become expensive at scale, while reasoning overhead and autoregressive decoding can add latency.
 
@@ -64,15 +52,14 @@ That is the gap Jev is designed to fill.
 
 Diogo Almeida, founder of TypeSafe AI, introduced Jev as the company's first *System One Model*. TypeSafe says Jev gives up string generation in favor of fast, typed probabilistic decisions that software can consume directly.[^typesafe-announcement]
 
-Its core interface is simple: **state plus questions produces typed decisions plus probabilities.** The documented state can be a string, JSON object, or array.[^typesafe-state]
+Its core interface is simple: **state plus questions produces typed decisions plus probabilities.** The documented state can be a string, JSON object, or array.[^typesafe-state] [^typesafe-primitives]
 
 {{< figure src="/images/jev-decision-layer.svg" caption="Jev takes state and bounded questions, then returns typed decisions with probabilities." alt="State and questions flow into Jev; typed decisions and probabilities flow out." width="80%" height="auto" align="center" >}}
 
 {{< notice info "A useful mental model" >}}
 Jev behaves somewhat like a classifier, but with the broad semantic understanding we normally associate with large language models.
 
-It is an analogy, not a claim that Jev is a conventional classifier: TypeSafe has not publicly described its architecture in enough detail to establish that.
-{{< /notice >}}
+*It is an analogy, not a claim that Jev is a conventional classifier.*{{< /notice >}}
 
 TypeSafe exposes three decision primitives:[^typesafe-primitives]
 
@@ -85,7 +72,7 @@ TypeSafe exposes three decision primitives:[^typesafe-primitives]
 `Noul` is intentionally spelled that way. It is TypeSafe's primitive for a truth probability between zero and one. `Score` can also fall between defined levels.[^typesafe-primitives]
 
 {{< notice tip "Why this is different" >}}
-Jev is designed around bounded questions. TypeSafe says independent questions against the same state are evaluated in parallel.
+Jev is designed around bounded questions. TypeSafe says all questions see the same state and are evaluated independently and in parallel. ([State documentation](https://docs.typesafe.ai/concepts/state) · [Parallel Questions cookbook](https://docs.typesafe.ai/cookbooks/parallel_questions))
 
 For an incident, those questions might be:
 
@@ -125,7 +112,7 @@ TypeSafe itself cautions that its 193.6× speed and 444.6× cost improvements ar
 
 ## How Jev Fits Into an Incident Workflow
 
-Take a CloudWatch alarm for checkout 5xx responses. Normalized production telemetry gives Jev the context it needs to make a routing and urgency decision:
+Take a CloudWatch alarm for checkout 5xx responses. Normalized production telemetry can provide Jev with relevant context for routing and urgency decisions:
 
 ```json
 {
@@ -194,7 +181,7 @@ Rather than ask a model for an incident narrative, ask bounded questions:
 }
 ```
 
-**Illustrative Jev Output**
+**Jev Output**
 
 *The following values are illustrative, not results from an actual Jev request. They demonstrate how the documented decision primitives could drive this workflow.*
 
@@ -233,27 +220,33 @@ Rather than ask a model for an incident narrative, ask bounded questions:
 }
 ```
 
+The application keeps control of the workflow by setting the action thresholds; TypeSafe documents confidence-gated routing as a pattern for deciding whether to act or escalate.[^typesafe-confidence-routing]
+
 We can use this structured output to drive the next step:
 
 ```python
+# Page the on-call engineer if the alert is very likely to need immediate attention.
 if response["page_now"]["noul"] >= 0.90:
     page_on_call_engineer()
 
 owner = response["owner"]
 
+# Auto-assign the incident only when Jev is confident enough about ownership.
 if owner["confidence"] >= 0.80:
     assign_incident(owner["choice"])
 else:
+    # Otherwise, ask a human to confirm the owning team.
     request_human_triage()
 
 severity = response["severity"]
 
+# For major or critical incidents, open an incident and start the investigation agent.
 if severity["score"] >= 2:
     open_incident()
     start_incident_agent()
 ```
 
-With the illustrative owner confidence of 0.76, the system would page the on-call engineer, open an incident, and start an investigation, but request human confirmation before assigning ownership. Jev does not merely select `checkout`; it gives the workflow enough uncertainty information to decide which actions can be automated and which decisions should escalate.
+With the owner confidence of 0.76, the system would page the on-call engineer, open an incident, and start an investigation, but request human confirmation before assigning ownership. Jev does not merely select `checkout`; it gives the workflow enough uncertainty information to decide which actions can be automated and which decisions should escalate.
 
 Only then does the system invoke the expensive intelligence.
 
@@ -263,9 +256,9 @@ Only then does the system invoke the expensive intelligence.
 
 Jev is not a replacement for LLMs. LLMs remain excellent for generation, reasoning, coding, planning, investigation, and conversation.
 
-Jev targets a different class of work: classification, routing, scoring, verification, branching, and fast probabilistic decisions.
+A Jev-based decision layer can support classification, routing, scoring, verification, branching, and fast probabilistic decisions.
 
-The SRE example places Jev **before** an agent. It decides whether an event can be ignored, needs a human, or should start an investigation. The same decision layer can also operate inside an agentic system.
+This proposed SRE architecture places Jev **before** an agent, where it can decide whether an event can be ignored, needs a human, or should start an investigation. The same decision layer can also operate inside an agentic system.
 
 ### Model Routing
 
@@ -273,7 +266,7 @@ An agentic system continuously makes small routing decisions: which model should
 
 That can mean using a reasoning model to decide which reasoning model to use. A dedicated decision layer provides another option.
 
-A simple task does not necessarily need the most expensive model available. A difficult or high-risk task might. Jev can potentially decide how much intelligence the next step actually needs, then route the work to a deterministic function, a smaller model, a frontier reasoning model, or a human reviewer.
+A simple task does not necessarily need the most expensive model available. A difficult or high-risk task might. TypeSafe documents intent routing to deterministic logic, a specialist LLM, or a human; routing to a smaller or frontier reasoning model is a natural extension of that pattern.[^typesafe-intent-routing]
 
 {{< figure src="/images/jev-model-routing.svg" caption="A decision layer can route work to the least expensive appropriate next step, then escalate complex or uncertain cases." alt="Diagram showing Jev routing an incoming task to a deterministic function, small model, reasoning model, or human review based on complexity, risk, and confidence." width="80%" height="auto" align="center" >}}
 
@@ -285,8 +278,10 @@ The same pattern applies to tool routing and verification. An agent may need to 
 
 Traditional software is deterministic and predictable, but it is limited when decisions depend on ambiguous context. Agents are flexible and powerful, but they introduce probabilistic behavior and higher inference cost. Jev can potentially sit between those worlds: it adds learned semantic decisions where hard-coded rules are not enough, without requiring a full generative reasoning model for every branch.
 
-**Jev does not replace the LLM. It gives production software a decision layer that can decide when an LLM is actually necessary.** For continuously operating systems and autonomous agents, that may be a missing architectural piece.
+> **Jev does not replace the LLM. It gives production software a decision layer that can decide when an LLM is actually necessary.**
 
 [^typesafe-announcement]: [Introducing System One Models & Jev — TypeSafe AI](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 [^typesafe-state]: [State — TypeSafe AI documentation](https://docs.typesafe.ai/concepts/state)
 [^typesafe-primitives]: [Primitives (Questions) — TypeSafe AI documentation](https://docs.typesafe.ai/primitives)
+[^typesafe-confidence-routing]: [Confidence-Gated Routing — TypeSafe AI documentation](https://docs.typesafe.ai/patterns/confidence-routing)
+[^typesafe-intent-routing]: [Intent Routing — TypeSafe AI documentation](https://docs.typesafe.ai/patterns/intent-routing)

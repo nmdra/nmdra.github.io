@@ -12,7 +12,8 @@
     .rail { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .flow { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; marker-end: url(#arrow); }
     .signal { fill: #175cd3; pointer-events: none; }
-    @media (prefers-reduced-motion: reduce) { .signal { display: none; } }
+    .pulse { fill: none; stroke: #175cd3; stroke-width: 2; pointer-events: none; }
+    @media (prefers-reduced-motion: reduce) { .signal, .pulse { display: none; } }
     .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
     .label { font-size: 23px; font-weight: 600; }
     .detail { font-size: 17px; }
@@ -28,18 +29,25 @@
 
   <rect class="card" x="56" y="82" width="250" height="72" rx="8"/>
   <text class="label ink" x="181" y="113" text-anchor="middle">State</text>
-  <text class="detail muted" x="181" y="139" text-anchor="middle">String · JSON · array</text>
+  <text class="detail muted" x="181" y="139" text-anchor="middle">Content + supporting facts</text>
   <rect class="card" x="414" y="82" width="250" height="72" rx="8"/>
   <text class="label ink" x="539" y="113" text-anchor="middle">Questions</text>
-  <text class="detail muted" x="539" y="139" text-anchor="middle">Bounded prompts</text>
+  <text class="detail muted" x="539" y="139" text-anchor="middle">Judgments to evaluate</text>
 
   <path class="rail" d="M181 154 V182 H539 V154"/>
   <path class="flow" d="M360 182 V219"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M360 182 V219" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M360 182 V219" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" dur="5s" repeatCount="indefinite"/>
   </circle>
   <rect class="jev" x="240" y="229" width="240" height="78" rx="8"/>
+  <rect class="pulse" x="235" y="224" width="250" height="88" rx="12" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.65;0;0" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="235;235;229;223;223" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="224;224;218;212;212" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="250;250;262;274;274" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="88;88;100;112;112" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="ink" x="360" y="278" text-anchor="middle" font-size="30" font-weight="700">Jev</text>
 
   <path class="rail" d="M360 307 V340 H181 M360 340 H539"/>

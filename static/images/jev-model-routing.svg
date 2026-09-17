@@ -13,7 +13,8 @@
     .rail { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .flow { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; marker-end: url(#arrow); }
     .signal { fill: #175cd3; pointer-events: none; }
-    @media (prefers-reduced-motion: reduce) { .signal { display: none; } }
+    .pulse { fill: none; stroke: #175cd3; stroke-width: 2; pointer-events: none; }
+    @media (prefers-reduced-motion: reduce) { .signal, .pulse { display: none; } }
     .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
     .label { font-size: 22px; font-weight: 600; }
     .detail { font-size: 18px; }
@@ -31,24 +32,47 @@
   <text class="label ink" x="360" y="129" text-anchor="middle">Incoming task</text>
   <path class="flow" d="M360 158 V204"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M360 158 V204" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M360 158 V204" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" dur="5s" repeatCount="indefinite"/>
   </circle>
 
   <rect class="jev" x="147" y="213" width="426" height="110" rx="8"/>
+  <rect class="pulse" x="141" y="207" width="438" height="122" rx="12" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.65;0;0" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="141;141;135;129;129" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="207;207;201;195;195" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="438;438;450;462;462" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="122;122;134;146;146" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="ink" x="360" y="260" text-anchor="middle" font-size="32" font-weight="750">Jev</text>
   <text class="detail accent" x="360" y="290" text-anchor="middle">Probabilistic routing</text>
   <text class="muted" x="360" y="310" text-anchor="middle" font-size="16">Task type · complexity · risk · confidence</text>
 
   <path class="rail" d="M360 323 V345 H190 V664"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M360 323 V345 H190" begin="1.2s" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M360 323 V345 H190" begin="1.2s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
   </circle>
   <path class="flow" d="M190 400 H221"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M190 400 H221" begin="1.7s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.7s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M190 488 H221"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M190 488 H221" begin="1.9s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.9s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M190 576 H221"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M190 576 H221" begin="2.1s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="2.1s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M190 664 H221"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M190 664 H221" begin="2.3s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="2.3s" dur="5s" repeatCount="indefinite"/>
+  </circle>
 
   <rect class="function" x="231" y="367" width="429" height="66" rx="8"/>
   <text class="label ink" x="254" y="393">Deterministic function</text>

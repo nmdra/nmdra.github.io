@@ -13,7 +13,8 @@
     .rule { stroke: #e4e7ec; }
     .flow { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
     .signal { fill: #175cd3; pointer-events: none; }
-    @media (prefers-reduced-motion: reduce) { .signal { display: none; } }
+    .pulse { fill: none; stroke: #175cd3; stroke-width: 2; pointer-events: none; }
+    @media (prefers-reduced-motion: reduce) { .signal, .pulse { display: none; } }
     .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
     .label { font-size: 22px; font-weight: 600; }
     .detail { font-size: 18px; }
@@ -33,17 +34,24 @@
   <text class="detail muted" x="360" y="139" text-anchor="middle">Checkout 5xx in production</text>
   <path class="flow" d="M360 158 V201"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M360 158 V201" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M360 158 V201" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" dur="5s" repeatCount="indefinite"/>
   </circle>
 
   <rect class="jev" x="140" y="210" width="440" height="116" rx="8"/>
+  <rect class="pulse" x="134" y="204" width="452" height="128" rx="12" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.65;0;0" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="134;134;128;122;122" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="204;204;198;192;192" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="452;452;464;476;476" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="128;128;140;152;152" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="ink" x="360" y="259" text-anchor="middle" font-size="32" font-weight="750">Jev</text>
   <text class="detail accent" x="360" y="293" text-anchor="middle">Bounded probabilistic decisions</text>
   <path class="flow" d="M360 326 V370"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M360 326 V370" begin="1.2s" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M360 326 V370" begin="1.2s" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
   </circle>
 
   <rect class="decisions" x="48" y="380" width="624" height="268" rx="8"/>
@@ -54,25 +62,37 @@
   <text class="node ink" x="72" y="456">Page now</text>
   <text class="detail muted" x="72" y="480">Yes · 0.95</text>
   <path class="flow" d="M334 461 H380"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M334 461 H380" begin="2.1s" dur="5s" keyTimes="0;0.12;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.11;0.15;1" begin="2.1s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <rect class="action" x="391" y="439" width="257" height="48" rx="9"/>
   <text class="node ink" x="519.5" y="470" text-anchor="middle">Page on-call</text>
 
   <text class="node ink" x="72" y="528">Owner</text>
   <text class="detail muted" x="72" y="552">Checkout · 0.76 confidence</text>
   <path class="flow" d="M334 531 H380"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M334 531 H380" begin="2.35s" dur="5s" keyTimes="0;0.12;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.11;0.15;1" begin="2.35s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <rect class="review" x="391" y="509" width="257" height="48" rx="9"/>
   <text class="node ink" x="519.5" y="540" text-anchor="middle">Human confirms owner</text>
 
   <text class="node ink" x="72" y="598">Severity</text>
   <text class="detail muted" x="72" y="622">Major · score 2</text>
   <path class="flow" d="M334 601 H380"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M334 601 H380" begin="2.6s" dur="5s" keyTimes="0;0.12;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.11;0.15;1" begin="2.6s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <rect class="action" x="391" y="579" width="257" height="48" rx="9"/>
   <text class="node ink" x="519.5" y="610" text-anchor="middle">Open incident</text>
 
   <path class="flow" d="M519.5 627 V681"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M519.5 627 V681" begin="2.4s" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" begin="2.4s" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M519.5 627 V681" begin="3.1s" dur="5s" keyTimes="0;0.18;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.03;0.17;0.22;1" begin="3.1s" dur="5s" repeatCount="indefinite"/>
   </circle>
   <rect class="agent" x="391" y="690" width="257" height="73" rx="8"/>
   <text class="node ink" x="519.5" y="720" text-anchor="middle">Incident agent</text>

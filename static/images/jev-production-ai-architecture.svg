@@ -15,7 +15,9 @@
     .flow { fill: none; stroke: #667085; stroke-width: 1.8; stroke-linecap: round; marker-end: url(#arrow); }
     .signal { fill: #175cd3; pointer-events: none; }
     .signal.neutral { fill: #667085; }
-    @media (prefers-reduced-motion: reduce) { .signal { display: none; } }
+    .pulse { fill: none; stroke: #175cd3; stroke-width: 2; pointer-events: none; }
+    .pulse.neutral { stroke: #667085; }
+    @media (prefers-reduced-motion: reduce) { .signal, .pulse { display: none; } }
     .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: .8px; }
     .headline { font-size: 20px; font-weight: 600; }
     .label { font-size: 21px; font-weight: 600; }
@@ -36,14 +38,21 @@
   <text class="label ink" x="184" y="186" text-anchor="middle">Every event</text>
   <path class="flow" d="M184 208 V266"/>
   <circle class="signal neutral" r="3.5" opacity="0">
-    <animateMotion path="M184 208 V266" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M184 208 V266" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" dur="5s" repeatCount="indefinite"/>
   </circle>
   <rect class="reason" x="64" y="276" width="240" height="72" rx="10"/>
   <text class="label ink" x="184" y="306" text-anchor="middle">Reasoning LLM</text>
   <text class="detail muted" x="184" y="331" text-anchor="middle">For every event</text>
   <path class="flow" d="M184 348 V407"/>
+  <circle class="signal neutral" r="3.5" opacity="0">
+    <animateMotion path="M184 348 V407" begin="1.2s" dur="5s" keyTimes="0;0.16;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.75;0.75;0;0" keyTimes="0;0.02;0.14;0.19;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <rect class="card" x="64" y="417" width="240" height="70" rx="10"/>
+  <rect class="pulse neutral" x="58" y="411" width="252" height="82" rx="14" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.45;0;0" keyTimes="0;0.27;0.32;0.44;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="label ink" x="184" y="459" text-anchor="middle">Agent / action</text>
   <text class="detail muted" x="184" y="558" text-anchor="middle">Each event incurs</text>
   <text class="detail muted" x="184" y="582" text-anchor="middle">reasoning-model cost.</text>
@@ -54,22 +63,41 @@
   <text class="label ink" x="546" y="186" text-anchor="middle">Every event</text>
   <path class="flow" d="M546 208 V235"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M546 208 V235" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M546 208 V235" dur="5s" keyTimes="0;0.15;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.02;0.13;0.18;1" dur="5s" repeatCount="indefinite"/>
   </circle>
   <rect class="jev" x="436" y="245" width="220" height="66" rx="11"/>
+  <rect class="pulse" x="430" y="239" width="232" height="78" rx="14" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.65;0;0" keyTimes="0;0.18;0.26;0.42;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="ink" x="546" y="274" text-anchor="middle" font-size="26" font-weight="750">Jev</text>
   <text class="detail accent" x="546" y="299" text-anchor="middle">Bounded decisions</text>
 
   <path class="rail" d="M546 311 V331 H403 V570"/>
   <circle class="signal" r="3.5" opacity="0">
-    <animateMotion path="M546 311 V331 H403" begin="1.2s" dur="5s" keyTimes="0;0.4;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;0.7;0.7;0;0" keyTimes="0;0.04;0.35;0.42;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
+    <animateMotion path="M546 311 V331 H403" begin="1.2s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.2s" dur="5s" repeatCount="indefinite"/>
   </circle>
   <path class="flow" d="M403 374 H426"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M403 374 H426" begin="1.7s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.7s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M403 440 H426"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M403 440 H426" begin="1.9s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="1.9s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M403 506 H426"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M403 506 H426" begin="2.1s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="2.1s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <path class="flow" d="M403 572 H426"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M403 572 H426" begin="2.3s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="2.3s" dur="5s" repeatCount="indefinite"/>
+  </circle>
 
   <rect class="card" x="436" y="347" width="220" height="54" rx="9"/>
   <text class="label ink" x="546" y="381" text-anchor="middle">Ignore</text>
@@ -80,6 +108,13 @@
   <rect class="reason" x="436" y="545" width="220" height="54" rx="9"/>
   <text class="label ink" x="546" y="579" text-anchor="middle">Reasoning LLM</text>
   <path class="flow" d="M546 599 V619"/>
+  <circle class="signal" r="3.5" opacity="0">
+    <animateMotion path="M546 599 V619" begin="2.8s" dur="5s" keyTimes="0;0.08;1" keyPoints="0;1;1" calcMode="linear" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0;0" keyTimes="0;0.01;0.07;0.1;1" begin="2.8s" dur="5s" repeatCount="indefinite"/>
+  </circle>
   <rect class="card" x="436" y="629" width="220" height="50" rx="9"/>
+  <rect class="pulse" x="430" y="623" width="232" height="62" rx="13" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.5;0;0" keyTimes="0;0.57;0.62;0.74;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
   <text class="label ink" x="546" y="661" text-anchor="middle">Agent</text>
 </svg>
