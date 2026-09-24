@@ -1,4 +1,4 @@
-baseURL: "https://blog.nimendra.xyz/"
+baseURL: "https://blog.nimendra.online/"
 locale: "en-US"
 title: "Nimendra"
 theme: ["hugo-notice", "PaperMod"]
