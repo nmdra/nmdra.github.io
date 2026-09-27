@@ -32,11 +32,11 @@ That means making a few bounded decisions:
 
 Operational teams have traditionally handled these decisions with humans or deterministic rules. More recently, general-purpose LLMs have become a third option.
 
-| Approach | Strength | Limitation |
-| --- | --- | --- |
-| Human | Flexible, context-aware, and good at handling edge cases | Slow, expensive, and difficult to scale |
-| Deterministic rules | Fast, cheap, predictable | Brittle when context and exceptions multiply |
-| General-purpose LLM | Flexible and able to return schema-constrained output | A general autoregressive generator is doing a narrow decision task |
+| Approach            | Strength                                                 | Limitation                                                         |
+| ------------------- | -------------------------------------------------------- | ------------------------------------------------------------------ |
+| Human               | Flexible, context-aware, and good at handling edge cases | Slow, expensive, and difficult to scale                            |
+| Deterministic rules | Fast, cheap, predictable                                 | Brittle when context and exceptions multiply                       |
+| General-purpose LLM | Flexible and able to return schema-constrained output    | A general autoregressive generator is doing a narrow decision task |
 
 Many teams are now exploring LLMs for these decisions, but inference cost and latency grow with volume.
 
@@ -48,7 +48,7 @@ Does every routing decision need a model designed to generate text, code, explan
 
 ## A Model for Bounded Decisions
 
-Diogo Almeida, founder of TypeSafe AI, introduced Jev as the company's first *System One Model*. TypeSafe says Jev gives up string generation in favor of fast, typed probabilistic decisions that software can consume directly.[^typesafe-announcement]
+Diogo Almeida, founder of TypeSafe AI, introduced Jev as the company's first _System One Model_. TypeSafe says Jev gives up string generation in favor of fast, typed probabilistic decisions that software can consume directly.[^typesafe-announcement]
 
 Its core interface is simple: state plus questions produces typed decisions plus probabilities. The documented state can be a string, JSON object, or array.[^typesafe-state] [^typesafe-primitives]
 
@@ -57,15 +57,15 @@ Its core interface is simple: state plus questions produces typed decisions plus
 {{< notice info "A useful mental model" >}}
 Jev behaves somewhat like a classifier, but with the broad semantic understanding we normally associate with large language models.
 
-*It is an analogy, not a claim that Jev is a conventional classifier.*{{< /notice >}}
+_It is an analogy, not a claim that Jev is a conventional classifier._{{< /notice >}}
 
 TypeSafe exposes three decision primitives:[^typesafe-primitives]
 
-| Type | What it returns | Example |
-| --- | --- | --- |
-| **Noul** | A 0–1 probability that the answer is yes | “Does this incident need an immediate response?” |
-| **Choice** | A predefined option plus its probability distribution | `platform`, `checkout`, `database`, `unknown` |
-| **Score** | A position and distribution across an ordered rubric | Severity `0–3` |
+| Type       | What it returns                                       | Example                                          |
+| ---------- | ----------------------------------------------------- | ------------------------------------------------ |
+| **Noul**   | A 0–1 probability that the answer is yes              | “Does this incident need an immediate response?” |
+| **Choice** | A predefined option plus its probability distribution | `platform`, `checkout`, `database`, `unknown`    |
+| **Score**  | A position and distribution across an ordered rubric  | Severity `0–3`                                   |
 
 `Noul` is intentionally spelled that way. It is TypeSafe's primitive for a truth probability between zero and one. `Score` can also fall between defined levels.[^typesafe-primitives]
 
@@ -85,7 +85,7 @@ Jev evaluates five bounded judgments against the same state rather than writing 
 
 ### System 1 and System 2
 
-According to TypeSafe's announcement, the name comes from Daniel Kahneman's *Thinking, Fast and Slow*:
+According to TypeSafe's announcement, the name comes from Daniel Kahneman's _Thinking, Fast and Slow_:
 
 - **System 1** is fast, automatic, and intuitive.
 - **System 2** is slower and deliberate.
@@ -94,13 +94,17 @@ TypeSafe applies a similar split to AI systems. Jev is for narrow, fast decision
 
 Consider an incident:
 
-| Decision layer | Reasoning layer |
-| --- | --- |
-| Which team owns this? | Why is the service failing? |
+| Decision layer                      | Reasoning layer                   |
+| ----------------------------------- | --------------------------------- |
+| Which team owns this?               | Why is the service failing?       |
 | Is it urgent or customer-impacting? | What changed before the incident? |
-| Should the system escalate? | How should we fix it? |
+| Should the system escalate?         | How should we fix it?             |
 
-The first determines *what should happen next*. The second determines *how to solve the problem*.
+The first determines _what should happen next_. The second determines _how to solve the problem_.
+
+Learn more about Jev here: [Jev and System One Models](https://notes.nimendra.online/00.fleeting-notes/ai-llm/others/jev-and-system-one-models)
+
+{{< figure src="https://notes.nimendra.online/00.fleeting-notes/ai-llm/others/jev-and-system-one-models-og-image.webp" alt="Preview card for the Jev and System One Models note on Nimendra's Notes." width="500" height="auto" align="center" link="https://notes.nimendra.online/00.fleeting-notes/ai-llm/others/jev-and-system-one-models" >}}
 
 ### The Cost and Speed
 
@@ -181,7 +185,7 @@ Rather than ask a model for an incident narrative, ask bounded questions:
 
 **Jev Output**
 
-*The following values are illustrative, not results from an actual Jev request. They demonstrate how the documented decision primitives could drive this workflow.*
+_The following values are illustrative, not results from an actual Jev request. They demonstrate how the documented decision primitives could drive this workflow._
 
 ```json
 {
@@ -277,7 +281,11 @@ The same pattern applies to tool routing and verification. An agent may need to 
 Hard-coded rules are brittle when decisions depend on ambiguous context, and agents add probabilistic behavior plus higher inference cost. Jev adds learned semantic decisions between them, without requiring a full generative reasoning model for every branch.
 
 [^typesafe-announcement]: [Introducing System One Models & Jev — TypeSafe AI](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
+
 [^typesafe-state]: [State — TypeSafe AI documentation](https://docs.typesafe.ai/concepts/state)
+
 [^typesafe-primitives]: [Primitives (Questions) — TypeSafe AI documentation](https://docs.typesafe.ai/primitives)
+
 [^typesafe-confidence-routing]: [Confidence-Gated Routing — TypeSafe AI documentation](https://docs.typesafe.ai/patterns/confidence-routing)
+
 [^typesafe-intent-routing]: [Intent Routing — TypeSafe AI documentation](https://docs.typesafe.ai/patterns/intent-routing)
