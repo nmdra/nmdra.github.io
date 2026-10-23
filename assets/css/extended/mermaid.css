@@ -1,0 +1,52 @@
+/* Pele renders Mermaid fences using the site's Catppuccin colors. */
+.mermaid {
+    margin: 1.5rem 0;
+    min-width: 0;
+    --pele-bg: var(--theme);
+    --pele-fg: var(--content);
+    --pele-muted: var(--secondary);
+    --pele-line: var(--primary);
+    --pele-surface: var(--entry);
+    --pele-surface-alt: var(--tertiary);
+    --pele-border: var(--border);
+    --pele-accent: #8839ef;
+    --pele-critical: #d20f39;
+    --pele-error: #d20f39;
+    --pele-series-1: #1e66f5;
+    --pele-series-2: #fe640b;
+    --pele-series-3: #40a02b;
+    --pele-series-4: #d20f39;
+    --pele-series-5: #179299;
+    --pele-series-6: #df8e1d;
+    --pele-series-7: #8839ef;
+    --pele-series-8: #ea76cb;
+}
+
+:root[data-theme="dark"] .mermaid,
+.dark .mermaid {
+    --pele-accent: #cba6f7;
+    --pele-critical: #f38ba8;
+    --pele-error: #f38ba8;
+    --pele-series-1: #89b4fa;
+    --pele-series-2: #fab387;
+    --pele-series-3: #a6e3a1;
+    --pele-series-4: #f38ba8;
+    --pele-series-5: #94e2d5;
+    --pele-series-6: #f9e2af;
+    --pele-series-7: #cba6f7;
+    --pele-series-8: #f5c2e7;
+}
+
+.mermaid svg.pele {
+    display: block;
+    margin-inline: auto;
+}
+
+.mermaid .mermaid-source {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.mermaid .mermaid-error {
+    color: var(--pele-error);
+}

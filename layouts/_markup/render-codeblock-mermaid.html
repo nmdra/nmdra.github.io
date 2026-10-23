@@ -1,2 +1,2 @@
 {{- $diagram := .Inner | strings.TrimSpace -}}
-<div class="mermaid">{{ $diagram | safeHTML }}</div>
+<div class="mermaid"><pre class="mermaid-source">{{ $diagram | htmlEscape | safeHTML }}</pre></div>

@@ -15,15 +15,29 @@ images.forEach(img => {
 });
 </script>
 
-<script id="mermaid-loader" type="module" data-url="{{ site.Params.mermaidUrl }}">
-  if (document.querySelector(".mermaid")) {
-    const loader = document.querySelector("#mermaid-loader");
-    const mermaid = await import(loader.dataset.url);
-    mermaid.default.initialize({
-      startOnLoad: true,
-      securityLevel: "strict",
-      theme: document.documentElement.dataset.theme === "dark" ? "dark" : "default"
-    });
+<script id="pele-loader" type="module" data-url="{{ site.Params.peleUrl }}">
+  const diagrams = document.querySelectorAll(".mermaid");
+  if (diagrams.length) {
+    try {
+      const loader = document.querySelector("#pele-loader");
+      const { mount } = await import(loader.dataset.url);
+      for (const element of diagrams) {
+        mount(element, element.textContent, {
+          links: true,
+          images: true,
+          zoom: true
+        });
+      }
+    } catch (error) {
+      console.error("Unable to load Pele diagrams.", error);
+      for (const element of diagrams) {
+        const message = document.createElement("p");
+        message.className = "mermaid-error";
+        message.setAttribute("role", "status");
+        message.textContent = "Diagram rendering is unavailable. Source is shown below.";
+        element.prepend(message);
+      }
+    }
   }
 </script>
 

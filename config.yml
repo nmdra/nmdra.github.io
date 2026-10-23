@@ -29,7 +29,7 @@ params:
   disableScrollToTop: false
   assets:
     disableHLJS: true
-  mermaidUrl: "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs"
+  peleUrl: "https://cdn.jsdelivr.net/npm/pele@1.9.0/dist/pele.js"
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
