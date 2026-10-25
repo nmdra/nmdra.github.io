@@ -61,7 +61,7 @@ In `config.yml`, I replaced `mermaidUrl` with:
 
 ```yaml
 params:
-  peleUrl: "https://cdn.jsdelivr.net/npm/pele@1.9.0/dist/pele.js"
+  peleUrl: "https://cdn.jsdelivr.net/npm/pele@1.10.0/dist/pele.js"
 ```
 
 This goes inside the existing `params` section.

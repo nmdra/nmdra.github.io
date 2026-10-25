@@ -16,7 +16,7 @@ This draft page tests Pele with Mermaid code fences. It is excluded from normal 
 - Check that the flowchart label shows **Input** and **A & B** on separate lines, not raw HTML.
 - Use the wide sequence diagram to test zoom and pan when it shrinks to fit. Use the zoom controls, double-click, or Ctrl/Command + mouse wheel.
 - Check that every diagram renders independently. The last example is intentionally invalid and should show an error.
-- To test the source fallback, disable JavaScript or block `https://cdn.jsdelivr.net/npm/pele@1.9.0/dist/pele.js` in browser developer tools, then reload. Source should remain readable without widening the page.
+- To test the source fallback, disable JavaScript or block `https://cdn.jsdelivr.net/npm/pele@1.10.0/dist/pele.js` in browser developer tools, then reload. Source should remain readable without widening the page.
 
 Diagram links and images are enabled in this integration. Referenced external images can make network requests.
 
