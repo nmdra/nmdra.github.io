@@ -21,10 +21,25 @@ images.forEach(img => {
     try {
       const loader = document.querySelector("#pele-loader");
       const { mount } = await import(loader.dataset.url);
+      // Only these local SVG paths are trusted. Never insert diagram text as SVG.
+      const iconPaths = new Map([
+        ["fa:fa-cube", '<path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 0v10m9-5-9 5-9-5m9 5v10"/>'],
+        ["fa:fa-database", '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 4 18 4 18 0V5M3 12c0 4 18 4 18 0"/>'],
+        ["fa:fa-server", '<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M6 6.5h1m3 0h1M6 17.5h1m3 0h1"/>'],
+        ["fa:fa-code", '<path d="m8 5-7 7 7 7m8-14 7 7-7 7M14 3l-4 18"/>'],
+        ["fa:fa-file", '<path d="M14 2H5v20h14V7l-5-5Zm0 0v5h5M8 12h8m-8 4h8"/>']
+      ]);
+      const icons = (name) => {
+        const paths = iconPaths.get(name);
+        return paths
+          ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`
+          : null;
+      };
       for (const element of diagrams) {
         mount(element, element.textContent, {
           links: true,
           images: true,
+          icons,
           zoom: true
         });
       }
