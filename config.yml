@@ -29,7 +29,7 @@ params:
   disableScrollToTop: false
   assets:
     disableHLJS: true
-  peleUrl: "https://cdn.jsdelivr.net/npm/pele@1.10.0/dist/pele.js"
+  peleUrl: "https://cdn.jsdelivr.net/npm/pele@1.13.0/dist/pele.js"
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
