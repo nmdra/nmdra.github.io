@@ -12,16 +12,14 @@ ShowReadingTime: true
 ShowPostNavLinks: true
 ShowBreadCrumbs: true
 ShowCodeCopyButtons: true
-draft: true
+draft: false
 ---
 
-I've been thinking about the CLI commands we give AI coding agents and the guidance they get when something goes wrong. **Are we designing our developer tools with AI agents in mind?**
-
-Skills can explain a workflow, but when a command fails, the CLI should help the agent understand why and choose a safe next step.
+Over the last couple of months, I've built several CLI tools, some focused on developer workflows. That got me thinking: **Are we designing our developer tools with AI agents in mind?**
 
 {{< figure src="/images/rethinking-cli-tools-for-ai-agents.png" alt="Three-panel illustration comparing tools designed for humans, agents, and both: an opaque deployment error, actionable recovery guidance, and separate human-readable and structured output modes." caption="Design for both: readable output for humans and structured recovery guidance for agents." width="100%" align="center" >}}
 
-Take a deployment command that returns this:
+Imagine an AI agent deploying a service through an internal CLI:
 
 ```text
 $ acme deploy --env staging
@@ -30,81 +28,57 @@ Error: DEPLOY_042
 Deployment failed.
 ```
 
-Now the agent has to find out what `DEPLOY_042` means. It might open the documentation, inspect logs, check credentials, or retry the command with different flags.
+Suppose the deployment was rejected because the active account lacks `deploy:create` permission in `staging`. The CLI has that explanation, but none of it reaches the agent.
 
-A developer can draw on experience with the tool or the system to understand what the error means. But when an agent has to discover context that the tool already knows, each extra step adds tool calls, tokens, and execution time. A wrong guess can also lead to an inappropriate fix.
+For a developer who has seen this error before, `DEPLOY_042` might be enough. An agent unfamiliar with the tool has to look it up or inspect logs to identify the cause. It might also retry the deployment, even though retrying won't fix the missing permission.
+
+The agent spends tool calls, tokens, and time recovering information the CLI could have returned with the failure.
 
 {{< notice info "Familiar tools vs. custom tools" >}}
-For well-known tools, an agent may already recognize common errors from documentation and examples encountered during training. It may be able to choose a useful next step without much investigation. Custom or internal developer tools are different: their commands, error codes, and recovery procedures may never have appeared in the model's training data. The CLI's own output becomes much more important.
+An agent may recognize common errors from well-known tools through its training. Custom or internal tools may be unfamiliar, so their output needs to provide more context.
 {{< /notice >}}
 
 Even with familiar tools, that knowledge can be outdated or miss details specific to the current environment.
 
 ## Give the Agent a Useful Next Step
 
-An agent needs to distinguish between failures that look similar but need different fixes. Is the configuration invalid? Does the active account lack permission? Is the service temporarily unavailable? Or did the request time out after the deployment had already started?
+To address this, we can make a simple change to our tools:
 
-Retrying might help with one, do nothing for another, and create duplicate work for a third.
+> Give more context to the agent through the CLI output.
 
-For a permission failure, the CLI could report:
+This applies to successful results, empty responses, and multi-step workflows too. A CLI could provide:
 
-- The operation failed during authorization.
-- The active account lacks `deploy:create` permission in `staging`.
-- No deployment was created.
-- The agent can check the active identity with `acme auth whoami`.
-- Deployment access requires approval from an administrator.
+- What happened and what the result means.
+- Relevant state, configuration, or limits.
+- Useful next steps or follow-up commands.
+- Warnings or conditions to check before taking action.
+- Links to documentation or a way to inspect more details.
 
-Returning what the tool already knows would let the agent investigate the specific failure instead of reconstructing it from a generic error code.
+For example, a command that starts a background job could return the job ID and a command to check its progress. The agent gets both the result and guidance on how to continue.
 
-The CLI should also distinguish facts from guesses. If it cannot confirm whether a deployment started, it should say the outcome is unknown and suggest checking deployment status before retrying.
-
-I'd want the recovery process to look something like this:
-
-```mermaid
-flowchart TD
-    accTitle: A simple CLI recovery flow
-    accDescr: Read the diagnostic and check status if needed. Stop on success, ask for help if uncertain, or recover within permissions and verify.
-    A[Command reports failure] --> B[Read diagnostic]
-    B --> C[Check status if unclear]
-    C --> D{Outcome?}
-    D -->|Succeeded| E[Done]
-    D -->|Still unclear| F[Stop and ask for help]
-    D -->|Failed| G[Recover within permissions]
-    G --> H[Verify result]
-```
-
-If the deployment already succeeded, there's no need to retry. If its status remains unclear or recovery needs extra permissions, stop and ask for help. Retry only when it's safe.
+That gives the agent a starting point instead of another problem to investigate.
 
 ## A Small Example From [NoteBrain](https://github.com/nmdra/notebrain-cli)
 
 I've started applying a small part of this idea in [NoteBrain](https://github.com/nmdra/notebrain-cli), my CLI for searching and retrieving notes from an Obsidian vault, a local collection of Markdown files.
 
-Suppose an agent tries to search, but the local embedding model isn't available. A generic message like this gives it little to work with:
+When a search fails because the local embedding model files are missing, the error includes useful context:
 
 ```text
-Model initialization failed.
+$ notebrain search "message brokers"
+
+Error: ... ONNX embedding model is unavailable;
+missing or empty files:
+  <cache>/all-MiniLM-L6-v2/onnx/model.onnx,
+  <cache>/all-MiniLM-L6-v2/onnx/tokenizer.json;
+run `notebrain doctor` for diagnostics and model recovery instructions
 ```
 
-The actual error identifies missing files or a download lock. For missing files, it points the agent to `notebrain doctor`. Here are three recovery messages from that command, with terminal styling omitted:
-
-```text
-Missing model files:
-[!] ONNX model recovery: run `notebrain doctor --fix` to download and restore the missing files, then rerun doctor
-
-Active download lock:
-[!] ONNX model recovery: wait for the active download; do not remove its lock
-
-Stale download lock:
-[!] ONNX model recovery: confirm the recorded PID is not running, then remove the stale lock and restore the model files
-```
-
-The guidance also tells the agent when to leave things alone. An active download is a reason to wait, rather than remove a lock or start another repair.
-
-See the [`doctor` implementation](https://github.com/nmdra/notebrain-cli/blob/master/cmd/doctor.go) for the recovery messages.
+The agent knows which dependency is unavailable, which files are missing, and what command to use next. That context arrives with the failed search, without a separate lookup to understand the error.
 
 ## Taking It Further With Structured Diagnostics
 
-I'd call the broader approach *agent-readable CLI diagnostics*: a stable, structured description of the failure, the relevant context, and possible recovery steps.
+We can apply the same idea to failures through *agent-readable CLI diagnostics*: structured information about what went wrong and possible next steps.
 
 Here's how the earlier deployment permission failure could look with `--output json`:
 
@@ -120,7 +94,7 @@ Here's how the earlier deployment permission failure could look with `--output j
     "environment": "staging",
     "deployment_created": false,
     "retryable": false,
-    "retry_condition": "Deployment permission must change before retrying.",
+    "retry_condition": "Use an account with deploy:create permission in staging before retrying.",
     "suggested_checks": [
       {
         "argv": ["acme", "auth", "whoami"],
@@ -135,21 +109,17 @@ Here's how the earlier deployment permission failure could look with `--output j
 }
 ```
 
-{{< notice info "A proposed format, not NoteBrain's current output" >}}
-The `acme` CLI and JSON schema above are hypothetical examples of how structured recovery guidance could work. They are not NoteBrain's current output or a proposed standard.
-{{< /notice >}}
-
 The agent can now check whether it is using the intended account. If the account is correct, it has a reason to stop and ask for access rather than repeatedly attempting the deployment.
 
-Here, `retryable: false` means retrying won't help until the permissions change.
+Here, `retryable: false` means repeating the same request won't help unless the account or its permissions change.
 
 A trace ID can help locate the underlying request in logs, and a documentation link can explain the failure in more detail. Neither should replace the immediate failure context.
 
 ## Wouldn't This Make CLI Output Messy?
 
-> Yes, it's messy for a human. for agents it's a context (guideline / hint) though.
+> What looks like extra output to a human can give an agent useful context, guidance, or hints.
 
-I'd keep the default human-readable output short:
+We can keep the default human-readable output short:
 
 ```text
 Deployment denied: the active account lacks deploy:create in staging.
@@ -157,7 +127,7 @@ Check the active account: acme auth whoami
 Request staging deployment access if the account is correct.
 ```
 
-Then offer structured output through `--output json`, with deeper logs available on demand. An `--explain` option could provide more detail for either audience.
+For agents and scripts, we can offer structured output through `--output json`, with deeper logs available on demand. An `--explain` option could provide more detail for either audience.
 
 In JSON mode, the CLI should document which stream carries diagnostics, keep progress messages out of that stream, and return a nonzero exit status on failure.
 
@@ -169,19 +139,17 @@ More output also consumes context. A stack trace, a full configuration dump, and
 A suggested command should never become automatic authorization to execute it. Even a read-only identity check can expose account information. A suggested fix might change permissions, delete state, or restart a production service. The agent's execution policy and the user's approval must still control those actions.
 {{< /notice >}}
 
-I'd use argument arrays rather than shell command strings for suggested checks. That avoids shell parsing, though the consumer still needs to validate the arguments. External text in diagnostics should remain data, not instructions the agent is expected to obey.
+We can provide suggested checks as argument arrays rather than shell command strings. Consumers can then invoke commands directly without shell parsing, while still validating the arguments. External text in diagnostics should remain data, not instructions the agent is expected to obey.
 
 The CLI must also redact secrets and avoid dumping sensitive request bodies. For an access failure, recommending that an agent disable authorization or grant itself broader permissions would be a dangerous recovery path. Sometimes the correct next step is to stop and ask a person.
 
 ## There Are Useful Foundations Already
 
-[SWE-agent](https://proceedings.neurips.cc/paper_files/paper/2024/hash/5a7c947568c1b1328ccc5230172e1e7c-Abstract-Conference.html) studies interfaces designed for language-model agents doing software engineering. Anthropic's [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) specifically recommends actionable error feedback and token-efficient responses.
+Anthropic's [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) specifically recommends actionable error feedback and token-efficient responses.
 
 The [Rust compiler's JSON diagnostics](https://doc.rust-lang.org/rustc/json.html) already include error codes, source locations, and suggestions. [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html) defines structured problem details for HTTP APIs. It isn't a CLI standard, but it provides a useful design reference.
 
-These sources support the design direction. They don't establish that the proposed CLI diagnostics improve agent recovery.
-
-I'd like to see recovery guidance become a normal part of CLI design, especially for custom and internal tools. We already explain how to run a command. Helping an agent understand a failed result deserves the same attention.
+We can keep CLI output readable for humans while giving agents enough context to understand results and choose a safe next step. For custom and internal tools, that context can help an agent continue without having to guess how the tool works.
 
 ## References
 
